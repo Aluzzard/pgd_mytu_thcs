@@ -1,0 +1,2 @@
+<link rel="stylesheet" href="{{ asset('assets/guests/default/modules/UIListSteeringDocument/css/dataTables.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/guests/default/modules/UIListSteeringDocument/css/responsive.bootstrap4.min.css') }}">
