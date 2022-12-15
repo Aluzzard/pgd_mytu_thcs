@@ -11,7 +11,7 @@
  Target Server Version : 100422
  File Encoding         : 65001
 
- Date: 14/12/2022 17:00:56
+ Date: 15/12/2022 17:03:30
 */
 
 SET NAMES utf8mb4;
@@ -86,13 +86,14 @@ CREATE TABLE `module_advertisements`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of module_advertisements
 -- ----------------------------
-INSERT INTO `module_advertisements` VALUES (4, 'Quảng cáo giữa', '1', NULL, NULL, NULL, '<img alt=\"\" src=\"/upload/photos/1/banner/CHU_DE_NAM_HOC_2022_-_2023_97b1b.png\" style=\"height:19%; width:100%\" />', '2022-11-30 15:38:42', '2022-11-30 15:38:42');
+INSERT INTO `module_advertisements` VALUES (4, 'Quảng cáo giữa', '1', NULL, NULL, NULL, '<p><img alt=\"\" src=\"/upload/photos/1/banner/qc1.png\" style=\"height:14%; width:100%\" /></p>', '2022-11-30 15:38:42', '2022-12-15 16:03:01');
 INSERT INTO `module_advertisements` VALUES (5, 'Quảng cáo phải', '1', NULL, NULL, NULL, '<img alt=\"\" src=\"/upload/photos/1/banner/tra-cuu-ket-qua.gif\" style=\"height:67%; width:100%\" />', '2022-12-14 16:55:06', '2022-12-14 16:55:06');
+INSERT INTO `module_advertisements` VALUES (6, 'Quảng cáo giữa 2', '1', NULL, NULL, NULL, '<img alt=\"\" src=\"/upload/photos/1/banner/day-tot-02.jpg\" style=\"height:14%; width:100%\" />', '2022-12-15 14:18:23', '2022-12-15 14:18:23');
 
 -- ----------------------------
 -- Table structure for module_article_by_menus
@@ -254,7 +255,7 @@ CREATE TABLE `module_banner_footers`  (
 -- Records of module_banner_footers
 -- ----------------------------
 INSERT INTO `module_banner_footers` VALUES (1, 'Banner', '1', '1', '1', NULL, NULL, '<img alt=\"\" src=\"/upload/photos/1/banner/banner.png\" style=\"height:18%; width:100%\" />', '2022-08-17 11:02:11', '2022-12-02 09:19:16');
-INSERT INTO `module_banner_footers` VALUES (2, 'Footer', '1', '1', '2', NULL, NULL, '<div class=\"d-flex\" style=\"background: #dfecff;padding: 20px;\">\r\n<div class=\"col-md-8\">\r\n<p style=\"text-align:center\"><strong>ĐƠN VỊ CHỦ QUẢN: Phòng GD&amp;ĐT Huyện Mỹ Tú</strong></p>\r\n\r\n<p style=\"text-align:center\">Địa chỉ: Đường Hùng Vương, ấp Cầu Đồn,TT Huỳnh Hữu Nghĩa, Mỹ Tú, Sóc Trăng.</p>\r\n\r\n<p style=\"text-align:center\">Điện thoại: 02993 871 040&nbsp; -&nbsp;Fax:&nbsp;&nbsp;-&nbsp;Email: pgdmytu@soctrang.edu.vn</p>\r\n</div>\r\n\r\n<div class=\"col-md-4\">\r\n<div class=\"fb-page\" data-href=\"https://www.facebook.com/pgdmytu\" data-tabs=\"\" data-width=\"\" data-height=\"\" data-small-header=\"false\" data-adapt-container-width=\"true\" data-hide-cover=\"false\" data-show-facepile=\"true\"><blockquote cite=\"https://www.facebook.com/pgdmytu\" class=\"fb-xfbml-parse-ignore\"><a href=\"https://www.facebook.com/pgdmytu\">Ngành Giáo dục huyện Mỹ Tú</a></blockquote></div>\r\n</div>\r\n</div>', '2022-08-17 13:54:51', '2022-12-05 09:21:22');
+INSERT INTO `module_banner_footers` VALUES (2, 'Footer', '1', '1', '2', NULL, NULL, '<div class=\"d-flex\" style=\"background: #dfecff;padding: 20px;\">\r\n<div class=\"col-md-12\">\r\n<p style=\"text-align:center\"><strong>ĐƠN VỊ CHỦ QUẢN: Phòng GD&amp;ĐT Huyện Mỹ Tú</strong></p>\r\n\r\n<p style=\"text-align:center\">Địa chỉ: Đường Hùng Vương, ấp Cầu Đồn,TT Huỳnh Hữu Nghĩa, Mỹ Tú, Sóc Trăng.</p>\r\n\r\n<p style=\"text-align:center\">Điện thoại: 02993 871 040&nbsp; -&nbsp;Fax:&nbsp;&nbsp;-&nbsp;Email: pgdmytu@soctrang.edu.vn</p>\r\n</div>\r\n</div>', '2022-08-17 13:54:51', '2022-12-15 14:53:20');
 
 -- ----------------------------
 -- Table structure for module_contacts
@@ -466,10 +467,10 @@ CREATE TABLE `module_visitors`  (
 -- Records of module_visitors
 -- ----------------------------
 INSERT INTO `module_visitors` VALUES (1, 'today', 1, '2021-07-06 17:02:06', '2022-12-12 16:54:02');
-INSERT INTO `module_visitors` VALUES (2, 'week', 5, '2021-07-06 17:02:06', '2022-12-14 14:24:36');
-INSERT INTO `module_visitors` VALUES (3, 'month', 23, '2021-07-06 17:02:06', '2022-12-14 14:24:36');
-INSERT INTO `module_visitors` VALUES (4, 'year', 23, '2021-07-06 17:02:06', '2022-12-14 14:24:36');
-INSERT INTO `module_visitors` VALUES (5, 'total', 23, '2021-07-06 17:02:06', '2022-12-14 14:24:36');
+INSERT INTO `module_visitors` VALUES (2, 'week', 8, '2021-07-06 17:02:06', '2022-12-15 13:49:20');
+INSERT INTO `module_visitors` VALUES (3, 'month', 26, '2021-07-06 17:02:06', '2022-12-15 13:49:20');
+INSERT INTO `module_visitors` VALUES (4, 'year', 26, '2021-07-06 17:02:06', '2022-12-15 13:49:20');
+INSERT INTO `module_visitors` VALUES (5, 'total', 26, '2021-07-06 17:02:06', '2022-12-15 13:49:20');
 
 -- ----------------------------
 -- Table structure for module_website_links
@@ -913,7 +914,7 @@ INSERT INTO `sys_list_modules` VALUES (42, 'Quản lý Banner Footer', 'quan-ly-
 INSERT INTO `sys_list_modules` VALUES (43, 'Quản lý quảng cáo', 'quan-ly-quang-cao', 'Modules\\AIAdvertisement\\AIAdvertisementController', 'modules.AIAdvertisement', 1, 3, 9, NULL, '/upload/icon/module/AIAdvertisement.png', '2022-08-17 14:27:17', '2022-08-30 17:08:06', 'AIAdvertisement', NULL, 1);
 INSERT INTO `sys_list_modules` VALUES (44, 'Quản lý bài viết theo phân quyền', 'quan-ly-bai-viet-theo-phan-quyen', 'Modules\\AIArticlesByPermission\\AIArticlesByPermissionController', 'modules.AIArticlesByPermission', 1, 4, 1, NULL, '/upload/icon/module/AIArticlesByPermission.png', '2022-08-17 14:36:21', '2022-11-28 16:05:42', 'AIArticlesByPermission', NULL, 1);
 INSERT INTO `sys_list_modules` VALUES (48, 'Quản lý văn bản quy phạm pháp luật', 'quan-ly-van-ban-quy-pham-phap-luat', 'Modules\\AIRulesOfLaw\\AIRulesOfLawController', 'modules.AIRulesOfLaw', 1, 1, 12, NULL, '/upload/icon/module/AIRulesOfLaw.png', '2022-12-01 14:32:45', '2022-12-01 14:49:29', 'AIRulesOfLaw', NULL, 1);
-INSERT INTO `sys_list_modules` VALUES (49, 'Quản lý danh sách trường học', 'quan-ly-danh-sach-truong-hoc', 'Modules\\AISchools\\AISchoolsController', 'modules.AISchools', 1, 0, 14, NULL, '/upload/icon/module/AISchoolsController.png', '2022-12-05 23:22:33', '2022-12-05 23:28:32', 'AISchools', NULL, 1);
+INSERT INTO `sys_list_modules` VALUES (49, 'Quản lý danh sách trường học', 'quan-ly-danh-sach-truong-hoc', 'Modules\\AISchools\\AISchoolsController', 'modules.AISchools', 1, 0, 14, NULL, '/upload/icon/module/AISchoolsController.png', '2022-12-05 23:22:33', '2022-12-15 09:29:42', 'AISchools', NULL, 0);
 
 -- ----------------------------
 -- Table structure for sys_logs
@@ -929,7 +930,7 @@ CREATE TABLE `sys_logs`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 598 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 604 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_logs
@@ -1434,6 +1435,12 @@ INSERT INTO `sys_logs` VALUES (594, 'Đăng nhập', 'Đăng nhập', 1, '', '20
 INSERT INTO `sys_logs` VALUES (595, 'Đăng nhập', 'Đăng nhập', 1, '', '2022-12-14 10:11:46', '2022-12-14 10:11:46');
 INSERT INTO `sys_logs` VALUES (596, 'Đăng nhập', 'Đăng nhập', 1, '', '2022-12-14 14:25:20', '2022-12-14 14:25:20');
 INSERT INTO `sys_logs` VALUES (597, 'AIAdvertisement', 'Thêm', 1, 'Quảng cáo: Quảng cáo phải', '2022-12-14 16:55:06', '2022-12-14 16:55:06');
+INSERT INTO `sys_logs` VALUES (598, 'Đăng nhập', 'Đăng nhập', 1, '', '2022-12-15 09:28:14', '2022-12-15 09:28:14');
+INSERT INTO `sys_logs` VALUES (599, 'Đăng nhập', 'Đăng nhập', 1, '', '2022-12-15 14:10:46', '2022-12-15 14:10:46');
+INSERT INTO `sys_logs` VALUES (600, 'AIAdvertisement', 'Thêm', 1, 'Quảng cáo: Quảng cáo giữa 2', '2022-12-15 14:18:23', '2022-12-15 14:18:23');
+INSERT INTO `sys_logs` VALUES (601, 'AIBannerFooter', 'Sửa', 1, 'Banner: Footer', '2022-12-15 14:53:06', '2022-12-15 14:53:06');
+INSERT INTO `sys_logs` VALUES (602, 'AIBannerFooter', 'Sửa', 1, 'Banner: Footer', '2022-12-15 14:53:20', '2022-12-15 14:53:20');
+INSERT INTO `sys_logs` VALUES (603, 'AIAdvertisement', 'Sửa', 1, 'Quảng cáo: Quảng cáo giữa', '2022-12-15 16:03:01', '2022-12-15 16:03:01');
 
 -- ----------------------------
 -- Table structure for sys_module_permissions_according_to_users

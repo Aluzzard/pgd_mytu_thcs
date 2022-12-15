@@ -9,7 +9,7 @@
     @include('modules.UIRealDateTime.css')
     @include('modules.UIFeaturedNews.css')
     @include('modules.UIVerticalMenu.css')
-    @include('modules.UISteeringDocumentNew.css')
+    @include('modules.UISteeringDocument.Tab.css')
     @include('modules.UITabArticle.css')
     @include('modules.UICounterVisitors.css')
 </head>
@@ -26,7 +26,7 @@
                 <div class="col-md-8">
                     <marquee behavior="scroll" direction="left">
                         <strong>
-                            <span class="text-danger">CHÀO MỪNG BẠN ĐẾN VỚI CỔNG THÔNG TIN ĐIỆN TỬ PHÒNG GIÁO DỤC VÀ ĐÀO TẠO MỸ TÚ - CHÀO MỪNG NGÀY CHUYỂN ĐỔI SỐ 10/10 CHUYỂN ĐỔI SỐ GIẢI QUYẾT CÁC VẤN ĐỀ CỦA XÃ HỘI VÌ MỘT CUỘC SỐNG TỐT ĐẸP HƠN CHO NGƯỜI DÂN</span>
+                            <span class="text-danger">Chào mừng bạn đến với cổng thông tin điện tử của Trường THCS DTNT Mỹ Tú</span>
                         </strong>
                     </marquee>
                 </div>
@@ -43,7 +43,7 @@
     @include('guests.partials.javascripts')
     @include('modules.UIDropdownMenu.javascripts')
     @include('modules.UIRealDateTime.javascripts')
-    @include('modules.UIDetailImageLibrary.javascripts')
+    @include('modules.UIImageLibrary.Detail.javascripts')
 </body>
 
 </html>

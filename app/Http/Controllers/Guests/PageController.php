@@ -8,45 +8,31 @@ use Validator;
 use DB;
 //Models
 use App\Models\MainStructure\SysWebsiteInformation;
-use App\Models\Modules\ModuleArticles;
-use App\Models\Modules\ModuleArticlesCategories;
+// use App\Models\Modules\ModuleArticles;
 use App\Models\Modules\ModuleContacts;
 use App\Models\Modules\ModuleSchools;
 // use App\Models\Modules\ModuleConstructionUsed;
 // use App\Models\Modules\PartialModuleConstructionUsedImages;
-use App\Models\Modules\ModuleWebsiteLinks;
-use App\Models\Modules\ModuleAdvertisement;
+// use App\Models\Modules\ModuleWebsiteLinks;
+// use App\Models\Modules\ModuleAdvertisement;
 use App\Models\Modules\ModuleSteeringDocument;
 use App\Models\Modules\ModuleRulesOfLaw;
 use App\Models\Modules\ModuleImageLibraries;
 use App\Models\Modules\PartialModuleLibraryImages;
-// use App\Models\Modules\ModulePaintBrand;
-// use App\Models\Modules\ModulePaintCategories;
-// use App\Models\Modules\ModulePaintProducts;
-// use App\Models\Modules\PartialModulePaintProductImages;
 use App\Models\Modules\ModuleVideoYoutube;
-//Controllers
+
 
 class PageController extends Controller {
 
     public function index(){
         
-        $data['featured_news'] = ModuleArticles::whereStatus(1)->whereFeaturedNews(1)->orderby('created_at', 'desc')->get();
-        // $data['sliders'] = PartialModuleLibraryImages::whereLibraryId(1)->get();
-        $data['articles'] = ModuleArticles::whereStatus(1)->orderby('created_at', 'desc')->get();
-        // $data['news_categories'] = ModuleArticlesCategories::whereIdParent(8)->get();
-        $data['website_links'] = ModuleWebsiteLinks::whereStatus(1)->orderBy('sort', 'asc')->get();
-        $data['advertisements'] = ModuleAdvertisement::whereIsActive(1)->orderby('created_at', 'desc')->get();
-        $data['vertical_menus'] = ModuleArticlesCategories::whereStatus(1)->whereShowVMenu(1)->orderBy('display_v_order')->get();
-
-        $data['steering_documents'] = ModuleSteeringDocument::orderBy('date_effect','desc')->get();
-        $data['rules_of_law'] = ModuleRulesOfLaw::orderBy('date_effect','desc')->get();
-
-        $data['documents_new'] = DB::table('module_rules_of_laws')
-                                    ->select('module_rules_of_laws.*')
-                                    ->union( DB::table('module_steering_documents')->select('module_steering_documents.*') )
-                                    ->orderBy('date_effect','desc')->get();
-
+        $data['featured_news'] = \App\Http\Controllers\Modules\UIFeaturedNews\UIFeaturedNewsController::tab();
+        $data['articles'] = \App\Http\Controllers\Modules\UITabArticle\UITabArticleController::tab();
+        $data['advertisements'] = \App\Http\Controllers\Modules\UIAdvertisements\UIAdvertisementsController::tab();
+        $data['vertical_menus'] = \App\Http\Controllers\Modules\UIDropdownMenu\UIDropdownMenuController::tab();
+        $data['website_links'] = \App\Http\Controllers\Modules\UIWebsiteLinks\UIWebsiteLinksController::tab();
+        $data['steering_documents'] = \App\Http\Controllers\Modules\UISteeringDocument\UISteeringDocumentController::tab();
+        $data['rules_of_law'] = \App\Http\Controllers\Modules\UIRulesOfLaw\UIRulesOfLawController::tab();
 
         $data['image_libraries'] = DB::table('module_image_libraries')
                                         ->leftJoin('partial_module_library_images','module_image_libraries.id','=','partial_module_library_images.library_id')
@@ -56,13 +42,7 @@ class PageController extends Controller {
                                         ->groupBy('module_image_libraries.id')
                                         ->get();
         $data['schools'] = ModuleSchools::whereIsActive(1)->get();
-        //     echo '<pre>';
-        // print_r( $data['banner_footer'] );
-        // echo '</pre>';die;
 
-            // $data['enterprises'] = ModulePaintBrand::whereActiveStatus(1)->get();
-            // $data['products'] = ModulePaintProducts::whereStatus(1)->orderby('created_at')->get();
-            // $data['videos'] = ModuleVideoYoutube::whereCheckActive(1)->orderby('created_at', 'desc')->get();
 
         return view('guests.pages.home.index', $data);
     }

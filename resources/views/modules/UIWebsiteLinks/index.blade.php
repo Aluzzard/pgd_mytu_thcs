@@ -35,7 +35,6 @@
 			<option value="{{$link->slug}}">{{$link->name}}</option>
 			@endif
 			@endforeach
-			
 		</select>
 	</div>
 </div>

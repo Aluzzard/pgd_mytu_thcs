@@ -1,5 +1,5 @@
 <div class="UIAdvertisements">
-	@foreach($advertisements->where('id',$id)->first as $advertisement)
-		{!! $advertisement->content !!}
-	@endforeach
+	@if($advertisements->where('id', $id)->first())
+	{!! $advertisements->where('id', $id)->first()->content !!}
+	@endif
 </div>

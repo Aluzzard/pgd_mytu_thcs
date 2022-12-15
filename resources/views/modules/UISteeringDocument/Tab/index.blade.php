@@ -1,4 +1,4 @@
-<div class="UISteeringDocumentNew">
+<div class="UISteeringDocument Tab">
 	<div class="heading">{{$heading}}</div>
 	<div class="content">
 		<ul>

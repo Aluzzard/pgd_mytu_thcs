@@ -12,7 +12,7 @@
 	.UIFeaturedNews .heading {
 		font-size: 17px;
 	    font-weight: bold;
-	    color: #0d6efd;
+	    color: var(--color-font);
 	    text-transform: uppercase;
 	    padding: 10px 0px 5px 20px;
 	    border-bottom: 2px solid #dcdcdd;
@@ -30,5 +30,6 @@
 	}
 	.UIFeaturedNews a {
 		text-decoration: none;
+		color: var(--color-font);
 	}
 </style>

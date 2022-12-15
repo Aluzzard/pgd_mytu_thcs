@@ -1,5 +1,5 @@
 @if($type_display == 1)
-@include('modules.UIListImageLibrary.css')
+@include('modules.UIImageLibrary.List.css')
 <div class="UIListLibraryImage_Default1">
 	<div class="heading">
 		Thư viện ảnh
@@ -16,7 +16,7 @@
 	</div>
 </div>
 @else
-@include('modules.UIListImageLibrary.css2')
+@include('modules.UIImageLibrary.List.css2')
 <div class="UIListLibraryImage_Default2">
 	<div class="library-content-box">
 		<div class="row library">

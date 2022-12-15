@@ -1,4 +1,4 @@
-<div class="UIDetailSteeringDocument_Default1">
+<div class="UIRulesOfLaw Detail Default1">
   <div class="heading">{{ $document->content }}</div>
   <div class="box-top">
     <div class="row">

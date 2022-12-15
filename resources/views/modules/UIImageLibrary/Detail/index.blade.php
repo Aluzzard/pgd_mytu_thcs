@@ -1,4 +1,4 @@
-@include('modules.UIDetailImageLibrary.css')
+@include('modules.UIImageLibraryDetail.css')
 <div class="UIDetailImageLibrary_Default1">
     <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
         @foreach($images as $image)
