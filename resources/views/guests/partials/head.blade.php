@@ -25,7 +25,19 @@
             --color-font-hover: <?= $information_website->color_font_hover ?>;
             --color-font-focus: <?= $information_website->color_font_focus ?>;
         }
+        .container {
+            width: 1000px;
+        }
     </style>
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0" nonce="s7f9sY8l"></script>
     @yield('styles')
+
+    @include('modules.UIBannerFooter.css')
+    @include('modules.UIDropdownMenu.css')
+    @include('modules.UIRealDateTime.css')
+    @include('modules.UIFeaturedNews.css')
+    @include('modules.UIVerticalMenu.css')
+    @include('modules.UISteeringDocument.Tab.css')
+    @include('modules.UITabArticle.css')
+    @include('modules.UICounterVisitors.css')

@@ -25,10 +25,10 @@
 @include('modules.UIWebsiteLinks.css2')
 <div class="UIWebsiteLinks_Default2">
 	<div class="heading">
-		Liên kết website
+		<span>Liên kết website</span>
 	</div>
 	<div class="link-content-box">
-		<select class="form-control" onchange="location = this.value;">
+		<select class="form-control" onchange="window.open(this.value)">
 			<option selected>-- Chọn liên kết --</option>
 			@foreach($website_links as $link)
 			@if( !$link->avatar )

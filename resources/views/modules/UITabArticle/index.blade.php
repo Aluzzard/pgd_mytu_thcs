@@ -1,5 +1,5 @@
 <div class="UITabArticle">
-	<div class="heading">{{$heading}}</div>
+	<div class="heading"><span>{{$heading}}</span></div>
 	<div class="content">
 			@php $key = 0; @endphp
 			@foreach($array as $item)
@@ -11,7 +11,7 @@
 					</div>
 					<div class="col-md-8">
 						<div class="title">{{$item->title}}</div>
-						<p class="text-primary">Ngày đăng: {{ date('d/m/Y', strtotime($item->created_at))}}</p>
+						<p class="datetime">Ngày đăng: {{ date('d/m/Y', strtotime($item->created_at))}}</p>
 					</div>
 					@else
 						@if($sub_item_img == 1)
@@ -20,7 +20,7 @@
 						</div>
 						<div class="col-md-8">
 							<div class="title">{{$item->title}}</div>
-							<p class="text-primary">Ngày đăng: {{ date('d/m/Y', strtotime($item->created_at))}}</p>
+							<p class="datetime">Ngày đăng: {{ date('d/m/Y', strtotime($item->created_at))}}</p>
 						</div>
 						@else
 						<div class="col-md-12">

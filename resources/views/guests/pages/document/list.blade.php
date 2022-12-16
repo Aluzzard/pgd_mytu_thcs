@@ -3,7 +3,7 @@
 @section('title', $type == 'steering_documents' ? 'Văn bản điều hành' : 'Văn bản quy phạm pháp luật')
 
 @section('styles')
-  @include('modules.UIListSteeringDocument.css')
+  @include('modules.UISteeringDocument.List.css')
 @endsection
 
 @section('content')
@@ -12,21 +12,21 @@
     <div class="col-md-4">
         @include('modules.UIVerticalMenu.index')
         @php $type_display = 1; @endphp
-        @include('modules.UIListImageLibrary.index')
+        @include('modules.UIImageLibrary.List.index')
     </div>
     <div class="col-md-8">
-        @include('modules.UIMenuNavigation.index')
+        
         @if($type == 'steering_documents')
-            @include('modules.UIListSteeringDocument.index')
+            @include('modules.UISteeringDocument.List.index')
         @else
-            @include('modules.UIListRulesOfLaw.index')
+            @include('modules.UIRulesOfLaw.List.index')
         @endif
     </div>
 </div>
 @endsection
 
 @section('scripts')
-	@include('modules.UIListSteeringDocument.javascripts')
+	@include('modules.UISteeringDocument.List.javascripts')
 @endsection
 
 

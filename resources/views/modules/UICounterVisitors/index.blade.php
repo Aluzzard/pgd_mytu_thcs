@@ -1,6 +1,6 @@
 <div class="UICounterVisitors_Default1">
 	<div class="heading">
-		Thống kê truy cập
+		<span>Thống kê truy cập</span>
 	</div>
 	<div class="counter-visitors-content">
 		<ul>

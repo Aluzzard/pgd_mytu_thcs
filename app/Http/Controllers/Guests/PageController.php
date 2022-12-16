@@ -34,13 +34,8 @@ class PageController extends Controller {
         $data['steering_documents'] = \App\Http\Controllers\Modules\UISteeringDocument\UISteeringDocumentController::tab();
         $data['rules_of_law'] = \App\Http\Controllers\Modules\UIRulesOfLaw\UIRulesOfLawController::tab();
 
-        $data['image_libraries'] = DB::table('module_image_libraries')
-                                        ->leftJoin('partial_module_library_images','module_image_libraries.id','=','partial_module_library_images.library_id')
-                                        ->where('module_image_libraries.status','=',1)
-                                        ->where('module_image_libraries.id','!=',1)
-                                        ->select('module_image_libraries.*','partial_module_library_images.path')
-                                        ->groupBy('module_image_libraries.id')
-                                        ->get();
+        $data['image_libraries'] = \App\Http\Controllers\Modules\UIImageLibrary\UIImageLibraryController::tab();
+
         $data['schools'] = ModuleSchools::whereIsActive(1)->get();
 
 
@@ -48,19 +43,15 @@ class PageController extends Controller {
     }
 
     public function redirect($slug) {
+        $data['menu_navigation'] = \App\Http\Controllers\Modules\UIMenuNavigation\UIMenuNavigationController::tab();
+        $data['category'] = ModuleArticlesCategories::whereSlug($slug)->whereStatus(1)->first();
         if($slug == 'lien-he') {
             return view('guests.pages.contact');
         } 
-        else if($slug == 'van-ban-dieu-hanh'){
-            $data['vertical_menus'] = ModuleArticlesCategories::whereStatus(1)->whereShowVMenu(1)->orderBy('display_v_order')->get();
-            $data['image_libraries'] = DB::table('module_image_libraries')
-                                        ->leftJoin('partial_module_library_images','module_image_libraries.id','=','partial_module_library_images.library_id')
-                                        ->where('module_image_libraries.status','=',1)
-                                        ->where('module_image_libraries.id','!=',1)
-                                        ->select('module_image_libraries.*','partial_module_library_images.path')
-                                        ->groupBy('module_image_libraries.id')
-                                        ->get();
-            $data['category'] = ModuleArticlesCategories::whereSlug($slug)->first();
+        else if($slug == 'van-ban'){
+            $data['vertical_menus'] = \App\Http\Controllers\Modules\UIDropdownMenu\UIDropdownMenuController::tab();
+            $data['image_libraries'] = \App\Http\Controllers\Modules\UIImageLibrary\UIImageLibraryController::tab();
+            // $data['category'] = ModuleArticlesCategories::whereSlug($slug)->first();
             $data['table_html'] = $this->document_htmlTable('steering_documents');
             $data['type'] = 'steering_documents';
             return view('guests.pages.document.list', $data);
@@ -99,34 +90,15 @@ class PageController extends Controller {
             return view('guests.pages.libraryimages.list', $data);
         }
         else {
-            $data['vertical_menus'] = ModuleArticlesCategories::whereStatus(1)->whereShowVMenu(1)->orderBy('display_v_order')->get();
-            $category = ModuleArticlesCategories::whereSlug($slug)->firstOrFail();
-            if($category->display_method == 1){
-                $data['vertical_menus'] = ModuleArticlesCategories::whereStatus(1)->whereShowVMenu(1)->orderBy('display_v_order')->get();
-                $data['image_libraries'] = DB::table('module_image_libraries')
-                                        ->leftJoin('partial_module_library_images','module_image_libraries.id','=','partial_module_library_images.library_id')
-                                        ->where('module_image_libraries.status','=',1)
-                                        ->where('module_image_libraries.id','!=',1)
-                                        ->select('module_image_libraries.*','partial_module_library_images.path')
-                                        ->groupBy('module_image_libraries.id')
-                                        ->get();
-                $data['category'] = ModuleArticlesCategories::whereSlug($slug)->first();
-                $data['article'] = ModuleArticles::whereCategoryId( $data['category']->id )
-                                                    ->first();
+            $data['vertical_menus'] = \App\Http\Controllers\Modules\UIDropdownMenu\UIDropdownMenuController::tab();
+            if($category->display_method == 1){ //Đơn tin
+                $data['image_libraries'] = \App\Http\Controllers\Modules\UIImageLibrary\UIImageLibraryController::tab();
+                $data['article'] = \App\Http\Controllers\Modules\UITabArticle\UITabArticleController::articleBySlugCategory($slug);
                 return view('guests.pages.post.only',$data);
 
-            } else if($category->display_method == 2){
-                $data['vertical_menus'] = ModuleArticlesCategories::whereStatus(1)->whereShowVMenu(1)->orderBy('display_v_order')->get();
-                $data['image_libraries'] = DB::table('module_image_libraries')
-                                        ->leftJoin('partial_module_library_images','module_image_libraries.id','=','partial_module_library_images.library_id')
-                                        ->where('module_image_libraries.status','=',1)
-                                        ->where('module_image_libraries.id','!=',1)
-                                        ->select('module_image_libraries.*','partial_module_library_images.path')
-                                        ->groupBy('module_image_libraries.id')
-                                        ->get();
-                $data['category'] = ModuleArticlesCategories::whereSlug($slug)->first();
-                $data['articles'] = ModuleArticles::whereCategoryId($category->id)->paginate(10);
-                // $data['new_news'] = ModuleArticles::whereNewNews(1)->paginate(5);
+            } else if($category->display_method == 2){ //Danh sách tin bài
+                $data['image_libraries'] = \App\Http\Controllers\Modules\UIImageLibrary\UIImageLibraryController::tab();
+                $data['articles'] = \App\Http\Controllers\Modules\UITabArticle\UITabArticleController::articleBySlugCategory($slug);
                 return view('guests.pages.post.list',$data);
             }
             abort('404'); 

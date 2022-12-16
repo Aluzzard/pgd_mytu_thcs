@@ -3,18 +3,18 @@
 		margin: 15px 0;
 	}
 	.UISteeringDocument.Tab .heading{
-		background: url(assets/guests/default/modules/UIVerticalMenu/image/header.png) no-repeat, linear-gradient(45deg, #409eff 0%, rgb(2, 55, 119) 100%);
-		background-size: auto 30px;
-		height: 30px;
-		padding-left: 100px;
-	    color: white;
 	    font-size: 15px;
 	    font-weight: bold;
 	    line-height: 27px;
 	}
+	.UISteeringDocument.Tab .heading span {
+		background: var(--color-background);
+	    color: white;
+	    padding: 5px 10px;
+	}
 	.UISteeringDocument.Tab .content {
 		padding: 0 10px 0 0;
-		border: 1px solid #2196f3;
+		border: 1px solid var(--color-background);
 		height: 300px;
 		overflow: auto;
 	}
@@ -36,13 +36,16 @@
 	.UISteeringDocument.Tab .content p {
 		margin: 0;
 	}
+	.UISteeringDocument.Tab .content .datetime {
+		color: var(--color-font);
+	}
 	.UISteeringDocument.Tab a {
 		text-decoration: none;
 		color: #333;
 	}
 	.UISteeringDocument.Tab i {
 		margin-right: 3px;
-		color: var(--bs-link-color);
+		color: var(--color-font);
 	}
 
 	::-webkit-scrollbar {

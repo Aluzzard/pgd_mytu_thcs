@@ -5,13 +5,6 @@
         <!-- Page Title -->
     <title>@yield('title')</title>
     @include('guests.partials.head')
-    @include('modules.UIDropdownMenu.css')
-    @include('modules.UIRealDateTime.css')
-    @include('modules.UIFeaturedNews.css')
-    @include('modules.UIVerticalMenu.css')
-    @include('modules.UISteeringDocument.Tab.css')
-    @include('modules.UITabArticle.css')
-    @include('modules.UICounterVisitors.css')
 </head>
 
 <body>

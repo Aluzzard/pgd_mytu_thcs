@@ -2,14 +2,14 @@
 @include('modules.UIImageLibrary.List.css')
 <div class="UIListLibraryImage_Default1">
 	<div class="heading">
-		Thư viện ảnh
+		<span>Thư viện ảnh</span>
 	</div>
 	<div class="library-content-box">
 		@foreach($image_libraries as $library)
 		<a href="/thu-vien-anh/{{$library->id}}">
 			<div class="row library">
 				<div class="col-md-4"><img src="{{$library->path}}" width="100%"></div>
-				<div class="col-md-8">{{$library->name}}</div>
+				<div class="col-md-8"><span class="title">{{$library->name}}</span></div>
 			</div>
 		</a>
 		@endforeach

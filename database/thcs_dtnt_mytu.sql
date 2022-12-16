@@ -11,7 +11,7 @@
  Target Server Version : 100422
  File Encoding         : 65001
 
- Date: 15/12/2022 17:03:30
+ Date: 16/12/2022 16:54:46
 */
 
 SET NAMES utf8mb4;
@@ -254,7 +254,7 @@ CREATE TABLE `module_banner_footers`  (
 -- ----------------------------
 -- Records of module_banner_footers
 -- ----------------------------
-INSERT INTO `module_banner_footers` VALUES (1, 'Banner', '1', '1', '1', NULL, NULL, '<img alt=\"\" src=\"/upload/photos/1/banner/banner.png\" style=\"height:18%; width:100%\" />', '2022-08-17 11:02:11', '2022-12-02 09:19:16');
+INSERT INTO `module_banner_footers` VALUES (1, 'Banner', '1', '1', '1', NULL, NULL, '<p><img alt=\"\" src=\"/upload/photos/1/banner/Banner_co_chu73.jpg\" style=\"height:16%; width:100%\" /></p>', '2022-08-17 11:02:11', '2022-12-16 14:59:36');
 INSERT INTO `module_banner_footers` VALUES (2, 'Footer', '1', '1', '2', NULL, NULL, '<div class=\"d-flex\" style=\"background: #dfecff;padding: 20px;\">\r\n<div class=\"col-md-12\">\r\n<p style=\"text-align:center\"><strong>ĐƠN VỊ CHỦ QUẢN: Phòng GD&amp;ĐT Huyện Mỹ Tú</strong></p>\r\n\r\n<p style=\"text-align:center\">Địa chỉ: Đường Hùng Vương, ấp Cầu Đồn,TT Huỳnh Hữu Nghĩa, Mỹ Tú, Sóc Trăng.</p>\r\n\r\n<p style=\"text-align:center\">Điện thoại: 02993 871 040&nbsp; -&nbsp;Fax:&nbsp;&nbsp;-&nbsp;Email: pgdmytu@soctrang.edu.vn</p>\r\n</div>\r\n</div>', '2022-08-17 13:54:51', '2022-12-15 14:53:20');
 
 -- ----------------------------
@@ -296,9 +296,9 @@ CREATE TABLE `module_image_libraries`  (
 -- ----------------------------
 -- Records of module_image_libraries
 -- ----------------------------
-INSERT INTO `module_image_libraries` VALUES (33, 'Phát quà cho học sinh ngày hội \"THẮP SÁNG ưỚC MƠ TUỔI TRẺ VIỆT NAM\" LẦN VII- NĂM 2018', NULL, 1, '2022-03-30 15:50:46', '2022-12-01 22:15:09');
-INSERT INTO `module_image_libraries` VALUES (39, 'Khu di tích lịch sử Mỹ Phước', NULL, 1, '2022-12-01 22:15:37', '2022-12-01 22:15:40');
-INSERT INTO `module_image_libraries` VALUES (40, 'Ngày hội \"THẮP SÁNG ưỚC MƠ TUỔI TRẺ VIỆT NAM\" LẦN VII- NĂM 2018', NULL, 1, '2022-12-01 22:16:11', '2022-12-01 22:16:11');
+INSERT INTO `module_image_libraries` VALUES (33, 'Các hoạt động tuyên truyền', NULL, 1, '2022-03-30 15:50:46', '2022-12-16 14:36:39');
+INSERT INTO `module_image_libraries` VALUES (39, 'Các hoạt động trải nghiệm - rèn kỹ năng sống', NULL, 1, '2022-12-01 22:15:37', '2022-12-16 14:37:19');
+INSERT INTO `module_image_libraries` VALUES (40, 'Hội khỏe Phù Đổng cấp trường', NULL, 1, '2022-12-01 22:16:11', '2022-12-16 14:38:21');
 
 -- ----------------------------
 -- Table structure for module_rules_of_laws
@@ -467,10 +467,10 @@ CREATE TABLE `module_visitors`  (
 -- Records of module_visitors
 -- ----------------------------
 INSERT INTO `module_visitors` VALUES (1, 'today', 1, '2021-07-06 17:02:06', '2022-12-12 16:54:02');
-INSERT INTO `module_visitors` VALUES (2, 'week', 8, '2021-07-06 17:02:06', '2022-12-15 13:49:20');
-INSERT INTO `module_visitors` VALUES (3, 'month', 26, '2021-07-06 17:02:06', '2022-12-15 13:49:20');
-INSERT INTO `module_visitors` VALUES (4, 'year', 26, '2021-07-06 17:02:06', '2022-12-15 13:49:20');
-INSERT INTO `module_visitors` VALUES (5, 'total', 26, '2021-07-06 17:02:06', '2022-12-15 13:49:20');
+INSERT INTO `module_visitors` VALUES (2, 'week', 10, '2021-07-06 17:02:06', '2022-12-16 14:28:30');
+INSERT INTO `module_visitors` VALUES (3, 'month', 28, '2021-07-06 17:02:06', '2022-12-16 14:28:30');
+INSERT INTO `module_visitors` VALUES (4, 'year', 28, '2021-07-06 17:02:06', '2022-12-16 14:28:30');
+INSERT INTO `module_visitors` VALUES (5, 'total', 28, '2021-07-06 17:02:06', '2022-12-16 14:28:30');
 
 -- ----------------------------
 -- Table structure for module_website_links
@@ -519,16 +519,33 @@ CREATE TABLE `partial_module_library_images`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `library_id`(`library_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 246 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 268 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of partial_module_library_images
 -- ----------------------------
-INSERT INTO `partial_module_library_images` VALUES (241, 'syqy_IMG_5335__1_80.jfif', NULL, 0, '/upload/library/syqy_IMG_5335__1_80.jfif', 1, 33, NULL, '2022-12-01 22:15:18', '2022-12-01 22:15:18');
-INSERT INTO `partial_module_library_images` VALUES (242, '60F3_IMG_533513.jfif', NULL, 0, '/upload/library/60F3_IMG_533513.jfif', 1, 33, NULL, '2022-12-01 22:15:18', '2022-12-01 22:15:18');
-INSERT INTO `partial_module_library_images` VALUES (243, 'ww6c_IMG20180428085553.jpg', NULL, 0, '/upload/library/ww6c_IMG20180428085553.jpg', 1, 39, NULL, '2022-12-01 22:15:55', '2022-12-01 22:15:55');
-INSERT INTO `partial_module_library_images` VALUES (244, 'Za5g_34563609_1959913494028372_6920816009062383616_n.jpg', NULL, 0, '/upload/library/Za5g_34563609_1959913494028372_6920816009062383616_n.jpg', 1, 40, NULL, '2022-12-01 22:16:50', '2022-12-01 22:16:50');
-INSERT INTO `partial_module_library_images` VALUES (245, '5Dmw_logo-ioc.png', NULL, 0, '/upload/library/5Dmw_logo-ioc.png', 1, 33, NULL, '2022-12-02 01:10:47', '2022-12-02 01:10:47');
+INSERT INTO `partial_module_library_images` VALUES (246, 'l1rq_120199181_208576337469321_540430441423594681_n_26d98afec9.jpg', NULL, 0, '/upload/library/l1rq_120199181_208576337469321_540430441423594681_n_26d98afec9.jpg', 1, 33, NULL, '2022-12-16 14:36:45', '2022-12-16 14:36:45');
+INSERT INTO `partial_module_library_images` VALUES (247, 'IJGL_120090459_208576387469316_8801736435937780151_n_ff3d7a18e6.jpg', NULL, 0, '/upload/library/IJGL_120090459_208576387469316_8801736435937780151_n_ff3d7a18e6.jpg', 1, 33, NULL, '2022-12-16 14:36:45', '2022-12-16 14:36:45');
+INSERT INTO `partial_module_library_images` VALUES (248, '2L5G_120090388_208576424135979_1251442209802308771_n_38aba32e14.jpg', NULL, 0, '/upload/library/2L5G_120090388_208576424135979_1251442209802308771_n_38aba32e14.jpg', 1, 33, NULL, '2022-12-16 14:36:45', '2022-12-16 14:36:45');
+INSERT INTO `partial_module_library_images` VALUES (249, 'WxNw_120043032_208576407469314_3205205835422063783_n_08bbc30b77.jpg', NULL, 0, '/upload/library/WxNw_120043032_208576407469314_3205205835422063783_n_08bbc30b77.jpg', 1, 33, NULL, '2022-12-16 14:36:45', '2022-12-16 14:36:45');
+INSERT INTO `partial_module_library_images` VALUES (250, 'KcFY_120066358_208576467469308_6632190273395921453_n_fa9da35d15.jpg', NULL, 0, '/upload/library/KcFY_120066358_208576467469308_6632190273395921453_n_fa9da35d15.jpg', 1, 33, NULL, '2022-12-16 14:36:45', '2022-12-16 14:36:45');
+INSERT INTO `partial_module_library_images` VALUES (251, 'o7dd_177829149_319946802998940_2903812630900036138_n_9bed6de10b.jpg', NULL, 0, '/upload/library/o7dd_177829149_319946802998940_2903812630900036138_n_9bed6de10b.jpg', 1, 39, NULL, '2022-12-16 14:38:04', '2022-12-16 14:38:04');
+INSERT INTO `partial_module_library_images` VALUES (252, 'ZYfi_175937540_316823469977940_1090856460583273934_n_4b1788df37.jpg', NULL, 0, '/upload/library/ZYfi_175937540_316823469977940_1090856460583273934_n_4b1788df37.jpg', 1, 39, NULL, '2022-12-16 14:38:04', '2022-12-16 14:38:04');
+INSERT INTO `partial_module_library_images` VALUES (253, 'h6Lt_176935093_319946826332271_7268972568885540471_n_061b482d6a.jpg', NULL, 0, '/upload/library/h6Lt_176935093_319946826332271_7268972568885540471_n_061b482d6a.jpg', 1, 39, NULL, '2022-12-16 14:38:04', '2022-12-16 14:38:04');
+INSERT INTO `partial_module_library_images` VALUES (254, 'DUlN_175900052_319946882998932_2754849364140343689_n_b1d9b96ccd.jpg', NULL, 0, '/upload/library/DUlN_175900052_319946882998932_2754849364140343689_n_b1d9b96ccd.jpg', 1, 39, NULL, '2022-12-16 14:38:04', '2022-12-16 14:38:04');
+INSERT INTO `partial_module_library_images` VALUES (255, 'H9Ms_175798862_316823819977905_6089157975124834154_n_6e872aad93.jpg', NULL, 0, '/upload/library/H9Ms_175798862_316823819977905_6089157975124834154_n_6e872aad93.jpg', 1, 39, NULL, '2022-12-16 14:38:04', '2022-12-16 14:38:04');
+INSERT INTO `partial_module_library_images` VALUES (256, 'Ww0A_175663876_316823576644596_5258291479653450595_n_65071f8757.jpg', NULL, 0, '/upload/library/Ww0A_175663876_316823576644596_5258291479653450595_n_65071f8757.jpg', 1, 39, NULL, '2022-12-16 14:38:04', '2022-12-16 14:38:04');
+INSERT INTO `partial_module_library_images` VALUES (257, 'dT8E_175578820_316823509977936_610496590200862433_n_530fe94c0c.jpg', NULL, 0, '/upload/library/dT8E_175578820_316823509977936_610496590200862433_n_530fe94c0c.jpg', 1, 39, NULL, '2022-12-16 14:38:04', '2022-12-16 14:38:04');
+INSERT INTO `partial_module_library_images` VALUES (258, 'qYnC_175412795_316823843311236_1727626971401578062_n_f172cce02b.jpg', NULL, 0, '/upload/library/qYnC_175412795_316823843311236_1727626971401578062_n_f172cce02b.jpg', 1, 39, NULL, '2022-12-16 14:38:04', '2022-12-16 14:38:04');
+INSERT INTO `partial_module_library_images` VALUES (259, 'Kn3G_175471383_319946849665602_410067893861045304_n_2ba50a8e7a.jpg', NULL, 0, '/upload/library/Kn3G_175471383_319946849665602_410067893861045304_n_2ba50a8e7a.jpg', 1, 39, NULL, '2022-12-16 14:38:04', '2022-12-16 14:38:04');
+INSERT INTO `partial_module_library_images` VALUES (260, 'UOwE_175130759_316823529977934_8485273589498775031_n_be503eed7f.jpg', NULL, 0, '/upload/library/UOwE_175130759_316823529977934_8485273589498775031_n_be503eed7f.jpg', 1, 39, NULL, '2022-12-16 14:38:04', '2022-12-16 14:38:04');
+INSERT INTO `partial_module_library_images` VALUES (261, 'JMqH_175099526_316823799977907_7756303765385417732_n_525288e42c.jpg', NULL, 0, '/upload/library/JMqH_175099526_316823799977907_7756303765385417732_n_525288e42c.jpg', 1, 39, NULL, '2022-12-16 14:38:04', '2022-12-16 14:38:04');
+INSERT INTO `partial_module_library_images` VALUES (262, 'Iyf8_175106377_316823626644591_526031540592758574_n_2bc438c392.jpg', NULL, 0, '/upload/library/Iyf8_175106377_316823626644591_526031540592758574_n_2bc438c392.jpg', 1, 39, NULL, '2022-12-16 14:38:04', '2022-12-16 14:38:04');
+INSERT INTO `partial_module_library_images` VALUES (263, 'B9fe_175099525_316823716644582_7016691364429679357_n_fd58433cc5.jpg', NULL, 0, '/upload/library/B9fe_175099525_316823716644582_7016691364429679357_n_fd58433cc5.jpg', 1, 39, NULL, '2022-12-16 14:38:04', '2022-12-16 14:38:04');
+INSERT INTO `partial_module_library_images` VALUES (264, 'kYip_174658385_316823876644566_3944964209659438532_n_1bb69952e8.jpg', NULL, 0, '/upload/library/kYip_174658385_316823876644566_3944964209659438532_n_1bb69952e8.jpg', 1, 39, NULL, '2022-12-16 14:38:04', '2022-12-16 14:38:04');
+INSERT INTO `partial_module_library_images` VALUES (265, 'uxtz_IMG_20211209_195449_32cb91d018.jpg', NULL, 0, '/upload/library/uxtz_IMG_20211209_195449_32cb91d018.jpg', 1, 40, NULL, '2022-12-16 14:38:52', '2022-12-16 14:38:52');
+INSERT INTO `partial_module_library_images` VALUES (266, 'DUfX_IMG_20211209_195444_1667efa740.jpg', NULL, 0, '/upload/library/DUfX_IMG_20211209_195444_1667efa740.jpg', 1, 40, NULL, '2022-12-16 14:38:52', '2022-12-16 14:38:52');
+INSERT INTO `partial_module_library_images` VALUES (267, 'FjJy_IMG_20211209_195429_eda6f882c2.jpg', NULL, 0, '/upload/library/FjJy_IMG_20211209_195429_eda6f882c2.jpg', 1, 40, NULL, '2022-12-16 14:38:52', '2022-12-16 14:38:52');
 
 -- ----------------------------
 -- Table structure for partial_module_rules_of_law_by_fields
@@ -930,7 +947,7 @@ CREATE TABLE `sys_logs`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 604 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 615 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_logs
@@ -1441,6 +1458,17 @@ INSERT INTO `sys_logs` VALUES (600, 'AIAdvertisement', 'Thêm', 1, 'Quảng cáo
 INSERT INTO `sys_logs` VALUES (601, 'AIBannerFooter', 'Sửa', 1, 'Banner: Footer', '2022-12-15 14:53:06', '2022-12-15 14:53:06');
 INSERT INTO `sys_logs` VALUES (602, 'AIBannerFooter', 'Sửa', 1, 'Banner: Footer', '2022-12-15 14:53:20', '2022-12-15 14:53:20');
 INSERT INTO `sys_logs` VALUES (603, 'AIAdvertisement', 'Sửa', 1, 'Quảng cáo: Quảng cáo giữa', '2022-12-15 16:03:01', '2022-12-15 16:03:01');
+INSERT INTO `sys_logs` VALUES (604, 'Đăng nhập', 'Đăng nhập', 1, '', '2022-12-16 10:54:53', '2022-12-16 10:54:53');
+INSERT INTO `sys_logs` VALUES (605, 'Đăng nhập', 'Đăng nhập', 1, '', '2022-12-16 14:22:33', '2022-12-16 14:22:33');
+INSERT INTO `sys_logs` VALUES (606, 'AIImageLibraries', 'Xoá ảnh', 1, 'Thư viện ảnh: Ngày hội \"THẮP SÁNG ưỚC MƠ TUỔI TRẺ VIỆT NAM\" LẦN VII- NĂM 2018; Tên ảnh: Za5g_34563609_1959913494028372_6920816009062383616_n.jpg', '2022-12-16 14:33:29', '2022-12-16 14:33:29');
+INSERT INTO `sys_logs` VALUES (607, 'AIImageLibraries', 'Xoá ảnh', 1, 'Thư viện ảnh: Khu di tích lịch sử Mỹ Phước; Tên ảnh: ww6c_IMG20180428085553.jpg', '2022-12-16 14:33:32', '2022-12-16 14:33:32');
+INSERT INTO `sys_logs` VALUES (608, 'AIImageLibraries', 'Xoá ảnh', 1, 'Thư viện ảnh: Phát quà cho học sinh ngày hội \"THẮP SÁNG ưỚC MƠ TUỔI TRẺ VIỆT NAM\" LẦN VII- NĂM 2018; Tên ảnh: syqy_IMG_5335__1_80.jfif', '2022-12-16 14:33:35', '2022-12-16 14:33:35');
+INSERT INTO `sys_logs` VALUES (609, 'AIImageLibraries', 'Xoá ảnh', 1, 'Thư viện ảnh: Phát quà cho học sinh ngày hội \"THẮP SÁNG ưỚC MƠ TUỔI TRẺ VIỆT NAM\" LẦN VII- NĂM 2018; Tên ảnh: 60F3_IMG_533513.jfif', '2022-12-16 14:33:36', '2022-12-16 14:33:36');
+INSERT INTO `sys_logs` VALUES (610, 'AIImageLibraries', 'Xoá ảnh', 1, 'Thư viện ảnh: Phát quà cho học sinh ngày hội \"THẮP SÁNG ưỚC MƠ TUỔI TRẺ VIỆT NAM\" LẦN VII- NĂM 2018; Tên ảnh: 5Dmw_logo-ioc.png', '2022-12-16 14:33:37', '2022-12-16 14:33:37');
+INSERT INTO `sys_logs` VALUES (611, 'AIImageLibraries', 'Thêm ảnh', 1, 'Thư viện ảnh: Các hoạt động tuyên truyền; Tên ảnh: KcFY_120066358_208576467469308_6632190273395921453_n_fa9da35d15.jpg', '2022-12-16 14:36:45', '2022-12-16 14:36:45');
+INSERT INTO `sys_logs` VALUES (612, 'AIImageLibraries', 'Thêm ảnh', 1, 'Thư viện ảnh: Các hoạt động trải nghiệm - rèn kỹ năng sống; Tên ảnh: kYip_174658385_316823876644566_3944964209659438532_n_1bb69952e8.jpg', '2022-12-16 14:38:04', '2022-12-16 14:38:04');
+INSERT INTO `sys_logs` VALUES (613, 'AIImageLibraries', 'Thêm ảnh', 1, 'Thư viện ảnh: Hội khỏe Phù Đổng cấp trường; Tên ảnh: FjJy_IMG_20211209_195429_eda6f882c2.jpg', '2022-12-16 14:38:52', '2022-12-16 14:38:52');
+INSERT INTO `sys_logs` VALUES (614, 'AIBannerFooter', 'Sửa', 1, 'Banner: Banner', '2022-12-16 14:59:36', '2022-12-16 14:59:36');
 
 -- ----------------------------
 -- Table structure for sys_module_permissions_according_to_users
@@ -1512,6 +1540,6 @@ CREATE TABLE `sys_website_information`  (
 -- ----------------------------
 -- Records of sys_website_information
 -- ----------------------------
-INSERT INTO `sys_website_information` VALUES (1, 'Trường THCS DTNT Mỹ Tú', 'Mỹ Tú, Sóc Trăng', '/upload/logo/logo-pgd-mt.png', NULL, NULL, NULL, NULL, NULL, NULL, 'linear-gradient(45deg, #0044cc, #b800cc)', 'red', 'red', '#448026', '#ff8000', 'Tiêu đề (meta_title):', 'sda', 'keywords', 'author', 'country', NULL, NULL, NULL, NULL, NULL, 'default');
+INSERT INTO `sys_website_information` VALUES (1, 'Trường THCS DTNT Mỹ Tú', 'Mỹ Tú, Sóc Trăng', '/upload/logo/logo-pgd-mt.png', NULL, NULL, NULL, NULL, NULL, NULL, '#ff8000', '#ff8000', '#ff8000', '#186bcc', '#ff8000', 'Tiêu đề (meta_title):', 'sda', 'keywords', 'author', 'country', NULL, NULL, NULL, NULL, NULL, 'default');
 
 SET FOREIGN_KEY_CHECKS = 1;
