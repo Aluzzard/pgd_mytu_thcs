@@ -26,7 +26,7 @@
             --color-font-focus: <?= $information_website->color_font_focus ?>;
         }
         .container {
-            width: 1000px;
+            width: 1100px;
         }
     </style>
     <div id="fb-root"></div>

@@ -31,7 +31,7 @@
 		@include('modules.UIAdvertisements.index')
 		<div class="row">
 			<div class="col-md-6">
-				@php $heading = "Hoạt động chuyên môn"; $array = $articles->where('category_id', 105)->take(4); $sub_item_img = false; @endphp
+				@php $heading = "Hoạt động chuyên môn"; $array = $articles->whereIn('category_id', [148,149,150])->take(4); $sub_item_img = false; @endphp
 				@include('modules.UITabArticle.index')
 			</div>
 			<div class="col-md-6">

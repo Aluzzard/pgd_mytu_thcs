@@ -8,7 +8,7 @@
 	    <div class="col-md-4">
 	        @include('modules.UIVerticalMenu.index')
 	        @php $type_display = 1; @endphp
-	        @include('modules.UIListImageLibrary.index')
+	        @include('modules.UIImageLibrary.List.index')
 	    </div>
 	    <div class="col-md-8">
 	        @include('modules.UIMenuNavigation.index')

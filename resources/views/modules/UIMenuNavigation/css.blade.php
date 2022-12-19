@@ -6,6 +6,7 @@
 		display: flex;
 		margin-bottom: 10px;
 		padding-left: 0;
+		flex-wrap: wrap;
 	}
 	.UIMenuNavigation ul li{
 		list-style: none;
@@ -13,8 +14,8 @@
 	}
 	.UIMenuNavigation ul li a {
 		text-decoration: none;
-		font-size: 15px;
+		font-size: 13px;
 		font-weight: 500;
-/*		color: #333;*/
+		color: var(--color-font);
 	}
 </style>

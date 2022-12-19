@@ -64,12 +64,10 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth:user'], function(){
     Route::get('module-permission', 'MainStructure\Users\ModulePermissionsAccordingToUser@index')->name('user.get.module.permission');
     Route::post('module-permission', 'MainStructure\Users\ModulePermissionsAccordingToUser@ajax')->name('user.action.module.permission');
     
-
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
          \UniSharp\LaravelFilemanager\Lfm::routes();
     });
     
-
     //Module
     require base_path('routes/partials/user_modules.php');
 });

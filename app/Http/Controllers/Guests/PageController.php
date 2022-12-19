@@ -44,7 +44,9 @@ class PageController extends Controller {
 
     public function redirect($slug) {
         $data['menu_navigation'] = \App\Http\Controllers\Modules\UIMenuNavigation\UIMenuNavigationController::tab();
-        $data['category'] = ModuleArticlesCategories::whereSlug($slug)->whereStatus(1)->first();
+        $category = \App\Models\Modules\ModuleArticlesCategories::whereSlug($slug)->whereStatus(1)->first();
+
+
         if($slug == 'lien-he') {
             return view('guests.pages.contact');
         } 
@@ -94,9 +96,11 @@ class PageController extends Controller {
             if($category->display_method == 1){ //Đơn tin
                 $data['image_libraries'] = \App\Http\Controllers\Modules\UIImageLibrary\UIImageLibraryController::tab();
                 $data['article'] = \App\Http\Controllers\Modules\UITabArticle\UITabArticleController::articleBySlugCategory($slug);
+                $data['menu_navigation'] = \App\Http\Controllers\Modules\UIMenuNavigation\UIMenuNavigationController::tab();
                 return view('guests.pages.post.only',$data);
 
-            } else if($category->display_method == 2){ //Danh sách tin bài
+            } 
+            else if($category->display_method == 2){ //Danh sách tin bài
                 $data['image_libraries'] = \App\Http\Controllers\Modules\UIImageLibrary\UIImageLibraryController::tab();
                 $data['articles'] = \App\Http\Controllers\Modules\UITabArticle\UITabArticleController::articleBySlugCategory($slug);
                 return view('guests.pages.post.list',$data);
@@ -105,21 +109,10 @@ class PageController extends Controller {
         }
     }
     public function redirectDetail($slug, $slug1) {
-        $data['vertical_menus'] = ModuleArticlesCategories::whereStatus(1)->whereShowVMenu(1)->orderBy('display_v_order')->get();
-        $data['image_libraries'] = DB::table('module_image_libraries')
-                                        ->leftJoin('partial_module_library_images','module_image_libraries.id','=','partial_module_library_images.library_id')
-                                        ->where('module_image_libraries.status','=',1)
-                                        ->where('module_image_libraries.id','!=',1)
-                                        ->select('module_image_libraries.*','partial_module_library_images.path')
-                                        ->groupBy('module_image_libraries.id')
-                                        ->get();
-        $data['category'] = ModuleArticlesCategories::whereSlug($slug)->firstOrFail();
-        $data['article'] = ModuleArticles::whereCategoryId($data['category']->id)->whereSlug($slug1)->firstOrFail();
-        $data['articles_relative'] = ModuleArticles::where('category_id', $data['article']->category_id)
-                                                    ->orderBy('updated_at', 'desc')
-                                                    ->get()
-                                                    ->take(10);
-
+        $data['vertical_menus'] = \App\Http\Controllers\Modules\UIDropdownMenu\UIDropdownMenuController::tab();
+        $data['image_libraries'] = \App\Http\Controllers\Modules\UIImageLibrary\UIImageLibraryController::tab();
+        $data['menu_navigation'] = \App\Http\Controllers\Modules\UIMenuNavigation\UIMenuNavigationController::tab();
+        $data['article'] = \App\Http\Controllers\Modules\UIDetailArticle\UIDetailArticleController::articleBySlug($slug1);
         return view('guests.pages.post.detail', $data);
     }
     
