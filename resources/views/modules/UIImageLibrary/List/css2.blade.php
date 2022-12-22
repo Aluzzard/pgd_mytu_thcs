@@ -5,5 +5,6 @@
 	.UIListLibraryImage_Default2 .library-content-box a {
 		text-decoration: none;
 		text-align: center;
+		color: #333;
 	}
 </style>

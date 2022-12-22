@@ -41,3 +41,7 @@
     </script> -->
 <!-- End share facebook -->
 @yield('scripts')
+@include('modules.UIDropdownMenu.javascripts')
+@include('modules.UIRealDateTime.javascripts')
+@include('modules.UIImageLibrary.Detail.javascripts')
+@include('modules.UIContactUs.javascripts')

@@ -34,9 +34,6 @@
         @php $test = 2; @endphp @include('modules.UIBannerFooter.index')
     </div>
     @include('guests.partials.javascripts')
-    @include('modules.UIDropdownMenu.javascripts')
-    @include('modules.UIRealDateTime.javascripts')
-    @include('modules.UIImageLibrary.Detail.javascripts')
 </body>
 
 </html>

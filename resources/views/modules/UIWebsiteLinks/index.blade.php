@@ -2,23 +2,19 @@
 @include('modules.UIWebsiteLinks.css')
 <div class="UIWebsiteLinks_Default1">
 	<div class="heading">
-		CHÍNH PHỦ ĐIỆN TỬ
+		<span>Chính phủ điện tử</span>
 	</div>
 	<div class="link-content-box">
-		<div class="row">
-			@foreach($website_links as $link)
-			@if( $link->avatar )
-			<div class="col-md-4">
-				<a class="item" href="{{$link->slug}}">
-					<img src="{{$link->avatar}}" width="100%">
-					<div class="title">
-						{{$link->name}}
-					</div>
-				</a>
+		@foreach($website_links as $link)
+		@if( $link->avatar )
+		<a class="item" href="{{$link->slug}}">
+			<img src="{{$link->avatar}}" width="100%">
+			<div class="title">
+				{{$link->name}}
 			</div>
-			@endif
-			@endforeach
-		</div>
+		</a>
+		@endif
+		@endforeach
 	</div>
 </div>
 @else

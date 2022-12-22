@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Guests;
 
 use App\Http\Controllers\Controller; 
-use Illuminate\Http\Request;
-use Validator;
 use DB;
 //Models
 use App\Models\MainStructure\SysWebsiteInformation;
@@ -45,50 +43,25 @@ class PageController extends Controller {
     public function redirect($slug) {
         $data['menu_navigation'] = \App\Http\Controllers\Modules\UIMenuNavigation\UIMenuNavigationController::tab();
         $category = \App\Models\Modules\ModuleArticlesCategories::whereSlug($slug)->whereStatus(1)->first();
-
-
         if($slug == 'lien-he') {
-            return view('guests.pages.contact');
+            $data['menu_navigation'] = \App\Http\Controllers\Modules\UIMenuNavigation\UIMenuNavigationController::tab();
+            return view('guests.pages.contact.contact', $data);
         } 
         else if($slug == 'van-ban'){
             $data['vertical_menus'] = \App\Http\Controllers\Modules\UIDropdownMenu\UIDropdownMenuController::tab();
             $data['image_libraries'] = \App\Http\Controllers\Modules\UIImageLibrary\UIImageLibraryController::tab();
-            // $data['category'] = ModuleArticlesCategories::whereSlug($slug)->first();
             $data['table_html'] = $this->document_htmlTable('steering_documents');
             $data['type'] = 'steering_documents';
             return view('guests.pages.document.list', $data);
         }
-        else if($slug == 'van-ban-quy-pham-phap-luat'){
-            $data['vertical_menus'] = ModuleArticlesCategories::whereStatus(1)->whereShowVMenu(1)->orderBy('display_v_order')->get();
-            $data['image_libraries'] = DB::table('module_image_libraries')
-                                        ->leftJoin('partial_module_library_images','module_image_libraries.id','=','partial_module_library_images.library_id')
-                                        ->where('module_image_libraries.status','=',1)
-                                        ->where('module_image_libraries.id','!=',1)
-                                        ->select('module_image_libraries.*','partial_module_library_images.path')
-                                        ->groupBy('module_image_libraries.id')
-                                        ->get();
-            $data['category'] = ModuleArticlesCategories::whereSlug($slug)->first();
-            $data['table_html'] = $this->document_htmlTable('rules_of_law');
-            $data['type'] = 'rules_of_law';
-            return view('guests.pages.document.list', $data);
-        }
         else if($slug == 'thu-vien-anh'){
-            $data['vertical_menus'] = ModuleArticlesCategories::whereStatus(1)->whereShowVMenu(1)->orderBy('display_v_order')->get();
-            $data['image_libraries'] = DB::table('module_image_libraries')
-                                        ->leftJoin('partial_module_library_images','module_image_libraries.id','=','partial_module_library_images.library_id')
-                                        ->where('module_image_libraries.status','=',1)
-                                        ->where('module_image_libraries.id','!=',1)
-                                        ->select('module_image_libraries.*','partial_module_library_images.path')
-                                        ->groupBy('module_image_libraries.id')
-                                        ->get();
-            $data['category'] = ModuleArticlesCategories::whereSlug($slug)->first();
-            $data['library_images'] = DB::table('module_image_libraries')
-                                        ->leftJoin('partial_module_library_images','module_image_libraries.id','=','partial_module_library_images.library_id')
-                                        ->where('module_image_libraries.status','=',1)
-                                        ->where('module_image_libraries.id','!=',1)
-                                        ->select('module_image_libraries.*','partial_module_library_images.path')
-                                        ->groupBy('module_image_libraries.id')
-                                        ->get();
+            $data['vertical_menus'] = \App\Http\Controllers\Modules\UIDropdownMenu\UIDropdownMenuController::tab();
+            $data['image_libraries'] = \App\Http\Controllers\Modules\UIImageLibrary\UIImageLibraryController::tab();
+            $data['articles'] = \App\Http\Controllers\Modules\UITabArticle\UITabArticleController::tab();
+            $data['menu_navigation'] = \App\Http\Controllers\Modules\UIMenuNavigation\UIMenuNavigationController::tab();
+            $data['advertisements'] = \App\Http\Controllers\Modules\UIAdvertisements\UIAdvertisementsController::tab();
+            $data['website_links'] = \App\Http\Controllers\Modules\UIWebsiteLinks\UIWebsiteLinksController::tab();
+            
             return view('guests.pages.libraryimages.list', $data);
         }
         else {
@@ -96,6 +69,9 @@ class PageController extends Controller {
             if($category->display_method == 1){ //Đơn tin
                 $data['image_libraries'] = \App\Http\Controllers\Modules\UIImageLibrary\UIImageLibraryController::tab();
                 $data['article'] = \App\Http\Controllers\Modules\UITabArticle\UITabArticleController::articleBySlugCategory($slug);
+                $data['articles'] = \App\Http\Controllers\Modules\UITabArticle\UITabArticleController::tab();
+                $data['advertisements'] = \App\Http\Controllers\Modules\UIAdvertisements\UIAdvertisementsController::tab();
+                $data['website_links'] = \App\Http\Controllers\Modules\UIWebsiteLinks\UIWebsiteLinksController::tab();
                 $data['menu_navigation'] = \App\Http\Controllers\Modules\UIMenuNavigation\UIMenuNavigationController::tab();
                 return view('guests.pages.post.only',$data);
 
@@ -111,53 +87,15 @@ class PageController extends Controller {
     public function redirectDetail($slug, $slug1) {
         $data['vertical_menus'] = \App\Http\Controllers\Modules\UIDropdownMenu\UIDropdownMenuController::tab();
         $data['image_libraries'] = \App\Http\Controllers\Modules\UIImageLibrary\UIImageLibraryController::tab();
+        $data['website_links'] = \App\Http\Controllers\Modules\UIWebsiteLinks\UIWebsiteLinksController::tab();
         $data['menu_navigation'] = \App\Http\Controllers\Modules\UIMenuNavigation\UIMenuNavigationController::tab();
         $data['article'] = \App\Http\Controllers\Modules\UIDetailArticle\UIDetailArticleController::articleBySlug($slug1);
+        $data['articles'] = \App\Http\Controllers\Modules\UITabArticle\UITabArticleController::tab();
         return view('guests.pages.post.detail', $data);
-    }
-    
-    public function detailProduct ($slug) {
-        $data['product'] = ModuleAgriculturalProducts::whereStatus(1)->where('slug',$slug)->firstOrFail();
-        $data['sliders'] = PartialModuleAgriculturalProductImages::where('product_id', $data['product']->id)->get();;
-        return view('guests.pages.product.detail', $data);
     }
 
     public function contactPost(Request $request){
-        $rules = [
-            'name' => 'required',
-            'numberphone' => 'required',
-            'content' => 'required',
-            'captcha' => 'required|captcha'
-        ];
-        $msg = [
-            'name.required' => 'Vui lòng nhập họ tên!',
-            'numberphone.required' => 'Vui lòng nhập số điện thoại!',
-            'content.required' => 'Vui lòng nhập nội dung!',
-            'captcha.required' => 'Vui lòng nhập Mã bảo vệ',
-            'captcha.captcha'  => 'Sai Mã bảo vệ'
-        ];
-        $validator = Validator::make($request->all(), $rules , $msg);
-        if ($validator->fails()) {
-            return redirect()->back()
-                        ->withErrors($validator)
-                        ->withInput();
-        } else {
-            try {
-                $info = new ModuleContacts;
-                $info->name = $request->input('name');
-                $info->numberphone = $request->input('numberphone');
-                $info->email = $request->input('email');
-                $info->type = $request->input('type');
-                $info->status = 0;
-                $info->content = $request->input('content');
-                $info->save();
-                \Session::flash('flash_success','Cảm ơn bạn đã gửi liên hệ!');
-                return redirect('/lien-he');
-            } catch(Exception $e) {
-                \Session::flash('flash_danger','Thất bại!');
-                return redirect('/lien-he');
-            }
-        }
+        
     }
     //--------------------
     public function document_htmlTable($type){
@@ -226,14 +164,8 @@ class PageController extends Controller {
     }
     //--------END CHI TIẾT VBCĐ-----------
     public function imagelibraryDetail($id){
-        $data['vertical_menus'] = ModuleArticlesCategories::whereStatus(1)->whereShowVMenu(1)->orderBy('display_v_order')->get();
-        $data['image_libraries'] = DB::table('module_image_libraries')
-                                        ->leftJoin('partial_module_library_images','module_image_libraries.id','=','partial_module_library_images.library_id')
-                                        ->where('module_image_libraries.status','=',1)
-                                        ->where('module_image_libraries.id','!=',1)
-                                        ->select('module_image_libraries.*','partial_module_library_images.path')
-                                        ->groupBy('module_image_libraries.id')
-                                        ->get();
+        $data['vertical_menus'] = \App\Http\Controllers\Modules\UIDropdownMenu\UIDropdownMenuController::tab();
+        $data['image_libraries'] = \App\Http\Controllers\Modules\UIImageLibrary\UIImageLibraryController::tab();
         $data['images'] = PartialModuleLibraryImages::whereLibraryId($id)->get(); // Hình trong thư viện ảnh được chọn
 
         return view('guests.pages.libraryimages.image', $data);

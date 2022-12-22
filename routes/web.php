@@ -73,10 +73,16 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth:user'], function(){
 });
 // end User
 Route::get('/', 'Guests\PageController@index')->name('home.index');
-Route::post('contact-post', 'Guests\PageController@contactPost')->name('home.contact.post');
+//Contact
+Route::post('contact-post', 'Modules\UIContactUs\UIContactUsController@post')->name('home.contact.post');
+//Steering document
 Route::get('/chi-tiet-van-ban-chi-dao/{id}',array('as' => 'document_minTable_detail','uses'=>'Guests\PageController@document_minTable_detail'))->where(['id'=>'[0-9]+']);
 Route::get('/chi-tiet-van-ban-quy-pham/{id}',array('as' => 'document_rules_of_law_detail','uses'=>'Guests\PageController@document_rules_of_law_detail'))->where(['id'=>'[0-9]+']);
+//Image library
 Route::get('/thu-vien-anh/{id}',array('as' => 'get_lib','uses'=>'Guests\PageController@imagelibraryDetail'));
+//Tạo lại mã captcha
+Route::get('ajax_regen_captcha', function(){ return captcha_src(); });
+//Redirect
 Route::get('{slug}', 'Guests\PageController@redirect')->name('home.redirect');
 Route::get('{slug}/{slug1}', 'Guests\PageController@redirectDetail')->name('home.redirect.detail');
 ?>
