@@ -26,7 +26,7 @@ class UITabArticleController extends Controller {
     //Danh sách các tin bài theo URL Category
     public function articlesBySlugCategory($slug) {
     	$category =	ModuleArticlesCategories::whereSlug($slug)->first();
-    	$article = ModuleArticles::whereCategoryId($category->id)->whereStatus(1)->firstOrFail();
-    	return $article;
+    	$articles = ModuleArticles::whereCategoryId($category->id)->whereStatus(1)->paginate(10);
+    	return $articles;
     }
 }

@@ -77,8 +77,9 @@ class PageController extends Controller {
 
             } 
             else if($category->display_method == 2){ //Danh sách tin bài
+                $data['website_links'] = \App\Http\Controllers\Modules\UIWebsiteLinks\UIWebsiteLinksController::tab();
                 $data['image_libraries'] = \App\Http\Controllers\Modules\UIImageLibrary\UIImageLibraryController::tab();
-                $data['articles'] = \App\Http\Controllers\Modules\UITabArticle\UITabArticleController::articleBySlugCategory($slug);
+                $data['articles'] = \App\Http\Controllers\Modules\UITabArticle\UITabArticleController::articlesBySlugCategory($slug);
                 return view('guests.pages.post.list',$data);
             }
             abort('404'); 
