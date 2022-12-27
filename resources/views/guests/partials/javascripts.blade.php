@@ -45,3 +45,4 @@
 @include('modules.UIRealDateTime.javascripts')
 @include('modules.UIImageLibrary.Detail.javascripts')
 @include('modules.UIContactUs.javascripts')
+@include('modules.UIVideoYoutube.javascripts')

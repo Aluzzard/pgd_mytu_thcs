@@ -3,15 +3,15 @@
 
  Source Server         : DB Laravel
  Source Server Type    : MySQL
- Source Server Version : 100422
- Source Host           : 127.0.0.1:3307
- Source Schema         : thcs_dtnt_mytu
+ Source Server Version : 100418
+ Source Host           : 127.0.0.1:3306
+ Source Schema         : pgd_mytu_thcs
 
  Target Server Type    : MySQL
- Target Server Version : 100422
+ Target Server Version : 100418
  File Encoding         : 65001
 
- Date: 27/12/2022 17:04:50
+ Date: 28/12/2022 01:47:45
 */
 
 SET NAMES utf8mb4;
@@ -32,8 +32,8 @@ CREATE TABLE `account_administrators`  (
   `avatar_path` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `active` bit(1) NULL DEFAULT NULL,
   `remember_token` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`, `account`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -56,8 +56,8 @@ CREATE TABLE `account_users`  (
   `avatar_path` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `active` int NULL DEFAULT NULL,
   `remember_token` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`, `account`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -80,11 +80,11 @@ CREATE TABLE `module_advertisements`  (
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `is_active` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   `type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `show_from_date` timestamp NULL DEFAULT NULL,
-  `show_to_date` timestamp NULL DEFAULT NULL,
+  `show_from_date` timestamp(0) NULL DEFAULT NULL,
+  `show_to_date` timestamp(0) NULL DEFAULT NULL,
   `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -134,13 +134,13 @@ CREATE TABLE `module_articles`  (
   `new_news` tinyint(1) NOT NULL DEFAULT 0,
   `featured_news` tinyint(1) NOT NULL DEFAULT 0,
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
-  `show_from_date` timestamp NULL DEFAULT NULL,
-  `show_to_date` timestamp NULL DEFAULT NULL,
+  `show_from_date` timestamp(0) NULL DEFAULT NULL,
+  `show_to_date` timestamp(0) NULL DEFAULT NULL,
   `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `meta_title` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `meta_description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `posts_user_id_index`(`user_id`) USING BTREE,
   INDEX `posts_category_id_index`(`category_id`) USING BTREE,
@@ -164,10 +164,6 @@ INSERT INTO `module_articles` VALUES (88, 1, 6, 'tests', 'tests', NULL, 1, 0, 0,
 INSERT INTO `module_articles` VALUES (74, 1, 87, 'Học sinh, sinh viên nghèo được vay tới 10 triệu đồng mua máy tính', 'hoc-sinh-sinh-vien-ngheo-duoc-vay-toi-10-trieu-dong-mua-may-tinh', NULL, 0, 0, 0, 0, NULL, NULL, NULL, '<p><span style=\"font-size:14px\">Ngày 04/4/2022, Thủ tướng ban hành&nbsp;<a href=\"http://pgdmytu.edu.vn/cong-van-van-ban/van-ban-quy-pham-phap-luat/quyet-dinh-ve-tin-dung-doi-voi-hoc-sinh-sinh-vien-co-hoan-ca.html\" rel=\"noreferrer noopener\" style=\"box-sizing: border-box; background-color: transparent; color: rgb(51, 51, 51); text-decoration-line: none;\" target=\"_blank\">Quyết định 09/2022/QĐ-TTg</a>&nbsp;về tín dụng đối với học sinh, sinh viên có hoàn cảnh gia đình khó khăn để mua máy tính, thiết bị phục vụ học tập trực tuyến.<br />\r\n<br />\r\nTheo đó, học sinh, sinh viên được hỗ trợ vay tối đa 10 triệu đồng/người với lãi suất 1,2%/năm, để mua máy tính, thiết bị phục vụ học tập trực tuyến khi đáp ứng các điều kiện sau:<br />\r\n- Là thành viên của hộ gia đình thuộc một trong các đối tượng: hộ nghèo, hộ cận nghèo, hộ có mức sống trung bình theo chuẩn quy định của pháp luật hoặc hộ gia đình có hoàn cảnh khó khăn do ảnh hưởng của dịch Covid-19 (có bố hoặc mẹ hoặc bố và mẹ mất do dịch Covid-19);<br />\r\n- Không có máy tính, thiết bị đủ điều kiện đáp ứng yêu cầu học tập trực tuyến và chưa được hưởng chính sách hỗ trợ máy tính, thiết bị học tập trực tuyến dưới mọi hình thức.</span></p>\r\n\r\n<p><span style=\"font-size:14px\">Vốn vay được sử dụng để mua máy tính, thiết bị đủ điều kiện đáp ứng yêu cầu học tập trực tuyến bao gồm:<br />\r\n- Máy tính để bàn;<br />\r\n- Máy tính xách tay;<br />\r\n- Máy tính bảng;<br />\r\n- Các thiết bị ghi hình kỹ thuật số (webcam);<br />\r\n- Thiết bị thu thanh (microphone).<br />\r\n<br />\r\n<a href=\"http://pgdmytu.edu.vn/cong-van-van-ban/van-ban-quy-pham-phap-luat/quyet-dinh-ve-tin-dung-doi-voi-hoc-sinh-sinh-vien-co-hoan-ca.html\" rel=\"noreferrer noopener\" style=\"box-sizing: border-box; background-color: transparent; color: rgb(51, 51, 51); text-decoration-line: none;\" target=\"_blank\">Quyết định 09/2022/QĐ-TTg</a>&nbsp;có hiệu lực từ ngày ký ban hành.</span></p>', NULL, NULL, '2022-12-05 11:01:49', '2022-12-05 11:01:49');
 INSERT INTO `module_articles` VALUES (75, 1, 100, 'Quy định mới về đánh giá học sinh trung học theo Chương trình GDPT 2018', 'quy-dinh-moi-ve-danh-gia-hoc-sinh-trung-hoc-theo-chuong-trinh-gdpt-2018', NULL, 0, 0, 0, 0, '<p><span style=\"color:rgb(119, 119, 119); font-family:arial; font-size:12px\">Bộ Giáo dục và Đào tạo (GDĐT) vừa ban hành Thông tư số 22/2021/TT-BGDĐT Quy định về đánh giá học sinh trung học cơ sở (THCS) và học sinh trung học phổ thông (THPT). Thông tư có hiệu lực từ ngày 5/9/2021 và thực hiện theo lộ trình triển khai chương trình giáo dục phổ thông mới (CT GDPT 2018) đối với cấp trung học.</span></p>', NULL, NULL, '<div class=\"content-detail font-size-text mb-20\" style=\"box-sizing: border-box; font-family: Arial; font-size: 12px; margin-bottom: 20px !important;\">\r\n<p>Cụ thể, từ năm học 2021-2022 áp dụng Thông tư 22/2021/TT-BGDĐT đối với lớp 6. Từ năm học 2022-2023 áp dụng tiếp cho lớp 7 và lớp 10. Từ năm học 2023-2024 thực hiện tiếp nối việc đánh giá học sinh theo&nbsp;<a href=\"https://moet.gov.vn/content/tintuc/Lists/News/Attachments/7488/FILE_20210819_161943_22_2021_TT_BGDDT.pdf\" rel=\"noreferrer noopener\" style=\"box-sizing: border-box; background-color: transparent; color: rgb(51, 51, 51); text-decoration-line: none;\" target=\"_blank\">Thông tư 22/2021/TT-BGDĐT</a>&nbsp;đối với lớp 8 và lớp 11. Từ năm học 2024-2025 thực hiện đánh giá theo Thông tư này cho 2 lớp còn lại là lớp 9 và lớp 12.</p>\r\n\r\n<p>Thông tư 22 ra đời sẽ thay thế cho hai Thông tư 58 và 26 quy định về đánh giá, xếp loại học sinh THCS và THPT được ban hành trước đó.</p>\r\n\r\n<p><strong>Đánh giá vì sự tiến bộ của người học</strong></p>\r\n\r\n<p>Kế thừa Thông tư 26/2020/TT-BGDĐT sửa đổi, bổ sung một số điều của Quy chế đánh giá, xếp loại học sinh THCS và THPT, Thông tư 22 yêu cầu việc đánh giá phải vì sự tiến bộ của người học. Theo đó, việc đánh giá căn cứ vào yêu cầu cần đạt được quy định trong CT GDPT; bảo đảm tính chính xác, toàn diện, công bằng, trung thực, khách quan. Việc đánh giá thực hiện bằng nhiều phương pháp, hình thức, kĩ thuật và công cụ khác nhau, kết hợp giữa đánh giá thường xuyên và đánh giá định kì. Hoạt động này phải coi trọng việc động viên, khuyến khích sự cố gắng trong rèn luyện và học tập của học sinh; không so sánh học sinh này với học sinh khác.</p>\r\n\r\n<p>Mục đích của việc đánh giá là xác định mức độ hoàn thành nhiệm vụ rèn luyện và học tập của học sinh theo yêu cầu cần đạt được quy định trong CT GDPT. Hoạt động này nhằm cung cấp thông tin chính xác, kịp thời để học sinh điều chỉnh hoạt động rèn luyện và học tập; cán bộ quản lý giáo dục và giáo viên thông qua đó cũng có sự điều chỉnh hoạt động dạy học cho phù hợp.</p>\r\n\r\n<p><strong>Nhiều môn chỉ đánh giá bằng nhận xét</strong></p>\r\n\r\n<p>Thông tư 22 quy định 2 hình thức đánh giá là bằng nhận xét và bằng điểm số. Trong đó, việc đánh giá bằng nhận xét, ngoài ý kiến chính của giáo viên, còn có sự tham gia phối hợp của học sinh, phụ huynh, và các cơ quan, tổ chức, cá nhân có tham gia vào quá trình giáo dục học trò. Cả đánh giá bằng nhận xét và điểm số đều được sử dụng trong đánh giá thường xuyên, đánh giá định kỳ.</p>\r\n\r\n<p>Tuy nhiên, khác với các Thông tư quy định về đánh giá học sinh THCS và THPT trước đây, Thông tư 22 cho phép một số một chỉ thực hiện đánh giá bằng nhận xét. Cụ thể, các môn: Giáo dục thể chất, Nghệ thuật, Âm nhạc, Mĩ thuật, Nội dung giáo dục của địa phương, Hoạt động trải nghiệm, hướng nghiệp, kết quả học tập theo môn học chỉ được đánh giá bằng nhận xét theo một trong hai mức: Đạt, Chưa đạt.</p>\r\n\r\n<p>Đối với các môn học còn lại, kết hợp giữa đánh giá bằng nhận xét với đánh giá bằng điểm số. Kết quả học tập theo môn học được đánh giá bằng điểm số theo thang điểm 10 và phải làm tròn đến chữ số thập phân thứ nhất nếu điểm là số nguyên hoặc số thập phân.</p>\r\n\r\n<p><strong>Bỏ tính điểm trung bình tất cả các môn học</strong></p>\r\n\r\n<p>Nếu Thông tư 58 có quy định về điểm trung bình học các môn để lấy căn cứ xếp loại học lực học sinh trong học kỳ và cả năm, thì ở Thông tư 22 mới, quy định này đã không còn. Điểm trung bình học kì và năm học chỉ được tính của riêng cho từng môn học.</p>\r\n\r\n<p>Thay vì xếp loại học lực Giỏi, khá, trung bình, yếu, kém như Thông tư 58, thì Thông tư 22 vì đánh giá sự phát triển năng lực của người học theo yêu cầu cần đạt của chương trình, nên đánh giá kết quả học tập của người học theo 4 mức “Tốt, Khá, Đạt, Chưa đạt” đối với môn học đánh giá bằng nhận xét kết hợp với điểm số và 2 mức “Đạt, Chưa đạt” đối với môn chỉ đánh giá bằng nhận xét.</p>\r\n\r\n<p>Khi tất cả các môn học đánh giá bằng nhận xét được đánh giá mức Đạt; tất cả môn đánh giá bằng nhận xét kết hợp với điểm số có điểm trung bình môn học kỳ và điểm trung bình môn cuối năm đạt từ 6,5 điểm trở lên, trong đó có ít nhất 06 môn học có đạt từ 8,0 điểm trở lên, thì học sinh được đánh giá kết quả học tập là “Tốt”.</p>\r\n\r\n<p>Nếu học sinh có kết quả học tập tất cả các môn đánh giá bằng nhận xét được đánh giá mức Đạt, đồng thời tất cả các môn đánh giá bằng nhận xét kết hợp với điểm số có điểm trung bình môn học kỳ và điểm trung bình môn cuối năm đạt từ 5,0 điểm trở lên, trong đó có ít nhất 06 môn đạt từ 6,5 điểm trở lên, thì được đánh giá mức “Khá”.</p>\r\n\r\n<p>Kết quả học tập của học sinh được đánh giá mức “Đạt” khi có nhiều nhất 01 môn học đánh giá bằng nhận xét được đánh giá mức “Chưa đạt” và có ít nhất 06 môn đánh giá bằng nhận xét kết hợp điểm số có điểm trung bình môn học kỳ và điểm trung bình môn cuối năm đạt từ 5,0 điểm trở lên, không có môn học nào dưới 3,5 điểm.</p>\r\n\r\n<p>Các trường hợp còn lại, học sinh được đánh giá là “Chưa đạt”.</p>\r\n\r\n<p>Việc đánh giá kết quả rèn luyện của học sinh ở Thông tư 22 được đánh giá theo một trong 04 mức: Tốt, Khá, Đạt, Chưa đạt; thay vì xếp loại Hạnh kiểm: Tốt, khá, trung bình, yếu như Thông tư 58.</p>\r\n\r\n<div>&nbsp;</div>\r\n</div>', NULL, NULL, '2022-12-05 14:52:57', '2022-12-05 14:52:57');
 INSERT INTO `module_articles` VALUES (76, 1, 100, 'V/v tăng cường dạy học qua internet trong thời gian nghỉ học để phòng, chống Covid-19', 'vv-tang-cuong-day-hoc-qua-internet-trong-thoi-gian-nghi-hoc-de-phong-chong-covid-19', NULL, 0, 0, 0, 0, '<p><a href=\"/upload/files/1/file/2022/154_31_3_20_CvtangcuongdayhoctructuyentrongthoinghidichnCoV_b34e94b223 (1).pdf\"><iframe frameborder=\"0\" height=\"500\" scrolling=\"no\" src=\"/upload/files/1/file/2022/154_31_3_20_CvtangcuongdayhoctructuyentrongthoinghidichnCoV_b34e94b223 (1).pdf\" width=\"100%\"></iframe></a></p>', NULL, NULL, '<p><strong>1.</strong>&nbsp;Chỉ đạo tổ chuyên môn rà soát, tinh giảm nội dung dạy học, xây dựng kế hoạch dạy học theo hướng dẫn tại Công văn số 4612/BGDĐT-GDTrH ngày 03/10/2017 của Bộ GDĐT về việc hướng dẫn thực hiện chương trình giáo dục phổ thông hiện hành theo định hướng phát triển năng lực và phẩm chất học sinh từ năm 2017 – 2018 để tổ chức dạy học qua internet một cách phù hợp. Trong quá trình triển khai thực hiện, cần tham khảo, sử dụng các nguồn học liệu tin cậy, chuẩn xác để tổ chức dạy học và hướng dẫn học sinh học tập.</p>\r\n\r\n<p><strong>2.</strong>&nbsp;Lựa chọn công cụ dạy học qua internet phù hợp với nhu cầu và điều kiện thực tế của từng đơn vị. Trong đó, đặc biệt chú ý đến các điều kiện bảo đảm tổ chức dạy học qua internet có chất lượng. Trường Đại học Sư phạm Hà Nội sẽ hỗ trợ miễn phí các trường tổ chức dạy học qua internet (thông tin liên hệ tại địa chỉ&nbsp;<a href=\"https://olm.vn/\">https://olm.vn&nbsp;</a>và thư điện tử&nbsp;<a href=\"mailto:a@olm.vn\">a@olm.vn</a>).</p>\r\n\r\n<p><strong>3.</strong>&nbsp;Phân công giáo viên giao&nbsp;nhiệm&nbsp;vụ học tập theo nội dung bài học và hướng dẫn học sinh thực hiện các bài học qua&nbsp;internet;&nbsp;Phối hợp với gia đình học sinh có biện pháp quản lý hoạt động học của học sinh qua&nbsp;internet;&nbsp;Nhận xét, đánh giá kết quả thực hiện&nbsp;nhiệm&nbsp;vụ học tập đã giao cho học&nbsp;sinh.</p>\r\n\r\n<p><strong>4.</strong>&nbsp;Hướng dẫn giáo viên, học sinh tham khảo lịch phát sóng các bài học (do Bộ GDĐT phối hợp với Đài truyền hình Việt Nam xây dựng) trên Kênh truyền hình giáo dục quốc gia (kênh VTV7 và một số kênh truyền hình quốc&nbsp;&nbsp; gia khác) và các kênh truyền hình khác được công bố trên Cổng thông tin của Bộ GDĐT (tại địa chỉ&nbsp;<a href=\"https://www.moet.gov.vn/\">https://www.moet.gov.vn</a>).</p>\r\n\r\n<p><strong>5.</strong>&nbsp;Khi học sinh đi học lại, các đơn vị tổ chức rà soát, đánh giá kết quả học tập qua internet để từ đó hướng dẫn giáo viên rà soát, tinh giảm nội dung dạy học và điều chỉnh kế hoạch dạy học theo hướng kế thừa những nội dung kiến thức đã học qua internet, nhằm tối ưu hóa thời gian và nội dung kiến thức cần tiếp tục dạy học trong chương theo quy định.</p>\r\n\r\n<p><strong>6.</strong>&nbsp;Các đơn vị hướng dẫn cho học sinh, giáo viên khai thác kho bài giảng e-Learning của Bộ GDĐT tại địa chỉ&nbsp;<a href=\"https://elearning.moet.edu.vn/\">https://elearning.moet.edu.vn/</a>&nbsp;theo công văn 1951/HD-SGDĐT ngày 17/9/2019 của Sở GDĐT về việc Thực hiện nhiệm vụ công nghệ thông tin năm học 2019-2020.</p>\r\n\r\n<p><strong>1.</strong>&nbsp;Chỉ đạo tổ chuyên môn rà soát, tinh giảm nội dung dạy học, xây dựng kế hoạch dạy học theo hướng dẫn tại Công văn số 4612/BGDĐT-GDTrH ngày 03/10/2017 của Bộ GDĐT về việc hướng dẫn thực hiện chương trình giáo dục phổ thông hiện hành theo định hướng phát triển năng lực và phẩm chất học sinh từ năm 2017 – 2018 để tổ chức dạy học qua internet một cách phù hợp. Trong quá trình triển khai thực hiện, cần tham khảo, sử dụng các nguồn học liệu tin cậy, chuẩn xác để tổ chức dạy học và hướng dẫn học sinh học tập.</p>\r\n\r\n<p><strong>2.</strong>&nbsp;Lựa chọn công cụ dạy học qua internet phù hợp với nhu cầu và điều kiện thực tế của từng đơn vị. Trong đó, đặc biệt chú ý đến các điều kiện bảo đảm tổ chức dạy học qua internet có chất lượng. Trường Đại học Sư phạm Hà Nội sẽ hỗ trợ miễn phí các trường tổ chức dạy học qua internet (thông tin liên hệ tại địa chỉ&nbsp;<a href=\"https://olm.vn/\">https://olm.vn&nbsp;</a>và thư điện tử&nbsp;<a href=\"mailto:a@olm.vn\">a@olm.vn</a>).</p>\r\n\r\n<p><strong>3.</strong>&nbsp;Phân công giáo viên giao&nbsp;nhiệm&nbsp;vụ học tập theo nội dung bài học và hướng dẫn học sinh thực hiện các bài học qua&nbsp;internet;&nbsp;Phối hợp với gia đình học sinh có biện pháp quản lý hoạt động học của học sinh qua&nbsp;internet;&nbsp;Nhận xét, đánh giá kết quả thực hiện&nbsp;nhiệm&nbsp;vụ học tập đã giao cho học&nbsp;sinh.</p>\r\n\r\n<p><strong>4.</strong>&nbsp;Hướng dẫn giáo viên, học sinh tham khảo lịch phát sóng các bài học (do Bộ GDĐT phối hợp với Đài truyền hình Việt Nam xây dựng) trên Kênh truyền hình giáo dục quốc gia (kênh VTV7 và một số kênh truyền hình quốc&nbsp;&nbsp; gia khác) và các kênh truyền hình khác được công bố trên Cổng thông tin của Bộ GDĐT (tại địa chỉ&nbsp;<a href=\"https://www.moet.gov.vn/\">https://www.moet.gov.vn</a>).</p>\r\n\r\n<p><strong>5.</strong>&nbsp;Khi học sinh đi học lại, các đơn vị tổ chức rà soát, đánh giá kết quả học tập qua internet để từ đó hướng dẫn giáo viên rà soát, tinh giảm nội dung dạy học và điều chỉnh kế hoạch dạy học theo hướng kế thừa những nội dung kiến thức đã học qua internet, nhằm tối ưu hóa thời gian và nội dung kiến thức cần tiếp tục dạy học trong chương theo quy định.</p>\r\n\r\n<p><strong>6.</strong>&nbsp;Các đơn vị hướng dẫn cho học sinh, giáo viên khai thác kho bài giảng e-Learning của Bộ GDĐT tại địa chỉ&nbsp;<a href=\"https://elearning.moet.edu.vn/\">https://elearning.moet.edu.vn/</a>&nbsp;theo công văn 1951/HD-SGDĐT ngày 17/9/2019 của Sở GDĐT về việc Thực hiện nhiệm vụ công nghệ thông tin năm học 2019-2020.</p>\r\n\r\n<p>&nbsp;</p>', NULL, NULL, '2022-12-05 15:04:00', '2022-12-05 15:26:56');
-INSERT INTO `module_articles` VALUES (77, 1, 87, 'CHÀO MỪNG NGÀY CHUYỂN ĐỔI SỐ 10/10 CHUYỂN ĐỔI SỐ GIẢI QUYẾT CÁC VẤN ĐỀ CỦA XÃ HỘI VÌ MỘT CUỘC SỐNG TỐT ĐẸP HƠN CHO NGƯỜI DÂN', 'chao-mung-ngay-chuyen-doi-so-1010-chuyen-doi-so-giai-quyet-cac-van-de-cua-xa-hoi-vi-mot-cuoc-song-tot-dep-hon-cho-nguoi-dan', '/upload/photos/1/tin-tuc/2022/thang10/30-11-2022/CHAO MUNG NGAY CHUYEN DOI SO.png', 1, 0, 0, 1, NULL, NULL, NULL, '<p><img alt=\"\" src=\"/upload/photos/1/tin-tuc/2022/thang10/30-11-2022/CHAO MUNG NGAY CHUYEN DOI SO.png\" style=\"height:67%; width:100%\" /></p>', NULL, NULL, '2022-10-13 15:10:00', '2022-11-30 10:40:34');
-INSERT INTO `module_articles` VALUES (78, 1, 87, 'CHÀO MỪNG NGÀY CHUYỂN ĐỔI SỐ 10/10 CHUYỂN ĐỔI SỐ GIẢI QUYẾT CÁC VẤN ĐỀ CỦA XÃ HỘI VÌ MỘT CUỘC SỐNG TỐT ĐẸP HƠN CHO NGƯỜI DÂN', 'chao-mung-ngay-chuyen-doi-so-1010-chuyen-doi-so-giai-quyet-cac-van-de-cua-xa-hoi-vi-mot-cuoc-song-tot-dep-hon-cho-nguoi-dan', '/upload/photos/1/tin-tuc/2022/thang10/30-11-2022/CHAO MUNG NGAY CHUYEN DOI SO.png', 1, 0, 0, 1, NULL, NULL, NULL, '<p><img alt=\"\" src=\"/upload/photos/1/tin-tuc/2022/thang10/30-11-2022/CHAO MUNG NGAY CHUYEN DOI SO.png\" style=\"height:67%; width:100%\" /></p>', NULL, NULL, '2022-10-13 15:10:00', '2022-11-30 10:40:34');
-INSERT INTO `module_articles` VALUES (79, 1, 87, 'CHÀO MỪNG NGÀY CHUYỂN ĐỔI SỐ 10/10 CHUYỂN ĐỔI SỐ GIẢI QUYẾT CÁC VẤN ĐỀ CỦA XÃ HỘI VÌ MỘT CUỘC SỐNG TỐT ĐẸP HƠN CHO NGƯỜI DÂN', 'chao-mung-ngay-chuyen-doi-so-1010-chuyen-doi-so-giai-quyet-cac-van-de-cua-xa-hoi-vi-mot-cuoc-song-tot-dep-hon-cho-nguoi-dan', '/upload/photos/1/tin-tuc/2022/thang10/30-11-2022/CHAO MUNG NGAY CHUYEN DOI SO.png', 1, 0, 0, 1, NULL, NULL, NULL, '<p><img alt=\"\" src=\"/upload/photos/1/tin-tuc/2022/thang10/30-11-2022/CHAO MUNG NGAY CHUYEN DOI SO.png\" style=\"height:67%; width:100%\" /></p>', NULL, NULL, '2022-10-13 15:10:00', '2022-11-30 10:40:34');
-INSERT INTO `module_articles` VALUES (80, 1, 87, 'CHÀO MỪNG NGÀY CHUYỂN ĐỔI SỐ 10/10 CHUYỂN ĐỔI SỐ GIẢI QUYẾT CÁC VẤN ĐỀ CỦA XÃ HỘI VÌ MỘT CUỘC SỐNG TỐT ĐẸP HƠN CHO NGƯỜI DÂN', 'chao-mung-ngay-chuyen-doi-so-1010-chuyen-doi-so-giai-quyet-cac-van-de-cua-xa-hoi-vi-mot-cuoc-song-tot-dep-hon-cho-nguoi-dan', '/upload/photos/1/tin-tuc/2022/thang10/30-11-2022/CHAO MUNG NGAY CHUYEN DOI SO.png', 1, 0, 0, 1, NULL, NULL, NULL, '<p><img alt=\"\" src=\"/upload/photos/1/tin-tuc/2022/thang10/30-11-2022/CHAO MUNG NGAY CHUYEN DOI SO.png\" style=\"height:67%; width:100%\" /></p>', NULL, NULL, '2022-10-13 15:10:00', '2022-11-30 10:40:34');
 
 -- ----------------------------
 -- Table structure for module_articles_categories
@@ -188,8 +184,8 @@ CREATE TABLE `module_articles_categories`  (
   `display_h_order` int NULL DEFAULT NULL COMMENT 'Thú tự',
   `show_v_menu` tinyint(1) NOT NULL DEFAULT 0,
   `display_v_order` int NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 159 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
@@ -251,11 +247,11 @@ CREATE TABLE `module_banner_footers`  (
   `is_default` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   `is_active` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   `type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `show_from_date` timestamp NULL DEFAULT NULL,
-  `show_to_date` timestamp NULL DEFAULT NULL,
+  `show_from_date` timestamp(0) NULL DEFAULT NULL,
+  `show_to_date` timestamp(0) NULL DEFAULT NULL,
   `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -277,8 +273,8 @@ CREATE TABLE `module_contacts`  (
   `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `status` tinyint(1) NULL DEFAULT NULL,
   `user_id` int NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = DYNAMIC;
 
@@ -298,8 +294,8 @@ CREATE TABLE `module_image_libraries`  (
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `description` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `status` int NOT NULL DEFAULT 0,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 41 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
@@ -361,8 +357,8 @@ CREATE TABLE `module_schools`  (
   `slug` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `sort` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `is_active` int NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 70 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
@@ -448,17 +444,18 @@ CREATE TABLE `module_video_youtubes`  (
   `check_outstanding` tinyint(1) NOT NULL DEFAULT 0,
   `check_internal` tinyint(1) NOT NULL DEFAULT 0,
   `check_active` tinyint(1) NOT NULL DEFAULT 0,
-  `show_from_date` timestamp NULL DEFAULT NULL,
-  `show_to_date` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `show_from_date` timestamp(0) NULL DEFAULT NULL,
+  `show_to_date` timestamp(0) NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of module_video_youtubes
 -- ----------------------------
-INSERT INTO `module_video_youtubes` VALUES (2, 'asd1', 'https://www.youtube.com/embed/GRJ55FuXug0', 'Đây là mô tả', 1, 0, 0, 0, 1, NULL, NULL, '2022-08-05 14:40:06', '2022-08-05 15:33:50');
+INSERT INTO `module_video_youtubes` VALUES (2, 'asd1', 'UvBMt155xPY', 'Đây là mô tả', 1, 0, 0, 0, 1, NULL, NULL, '2022-08-05 14:40:06', '2022-12-28 01:17:58');
+INSERT INTO `module_video_youtubes` VALUES (7, 'test', 'UxMc3YO3vYI', NULL, 1, 0, 0, 0, 1, NULL, NULL, '2022-12-28 00:31:51', '2022-12-28 01:17:12');
 
 -- ----------------------------
 -- Table structure for module_visitors
@@ -468,8 +465,8 @@ CREATE TABLE `module_visitors`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `counter` int NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`, `name`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
@@ -477,10 +474,10 @@ CREATE TABLE `module_visitors`  (
 -- Records of module_visitors
 -- ----------------------------
 INSERT INTO `module_visitors` VALUES (1, 'today', 1, '2021-07-06 17:02:06', '2022-12-12 16:54:02');
-INSERT INTO `module_visitors` VALUES (2, 'week', 6, '2021-07-06 17:02:06', '2022-12-27 16:23:51');
-INSERT INTO `module_visitors` VALUES (3, 'month', 42, '2021-07-06 17:02:06', '2022-12-27 16:23:51');
-INSERT INTO `module_visitors` VALUES (4, 'year', 42, '2021-07-06 17:02:06', '2022-12-27 16:23:51');
-INSERT INTO `module_visitors` VALUES (5, 'total', 42, '2021-07-06 17:02:06', '2022-12-27 16:23:51');
+INSERT INTO `module_visitors` VALUES (2, 'week', 7, '2021-07-06 17:02:06', '2022-12-27 23:15:33');
+INSERT INTO `module_visitors` VALUES (3, 'month', 43, '2021-07-06 17:02:06', '2022-12-27 23:15:33');
+INSERT INTO `module_visitors` VALUES (4, 'year', 43, '2021-07-06 17:02:06', '2022-12-27 23:15:33');
+INSERT INTO `module_visitors` VALUES (5, 'total', 43, '2021-07-06 17:02:06', '2022-12-27 23:15:33');
 
 -- ----------------------------
 -- Table structure for module_website_links
@@ -493,8 +490,8 @@ CREATE TABLE `module_website_links`  (
   `sort` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `status` int NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
@@ -525,10 +522,10 @@ CREATE TABLE `partial_module_library_images`  (
   `status` int NOT NULL DEFAULT 1,
   `library_id` int UNSIGNED NOT NULL,
   `url` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `library_id`(`library_id` ASC) USING BTREE
+  INDEX `library_id`(`library_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 268 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
@@ -667,10 +664,10 @@ CREATE TABLE `partial_module_tourism_destination_images`  (
   `status` int NOT NULL DEFAULT 1,
   `destination_id` int NOT NULL,
   `url` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `library_id`(`destination_id` ASC) USING BTREE
+  INDEX `library_id`(`destination_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 252 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
@@ -688,8 +685,8 @@ CREATE TABLE `partial_module_video_youtube_categories`  (
   `sort` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -724,10 +721,10 @@ CREATE TABLE `sys_function_of_controllers`  (
   `id_module` int NOT NULL,
   `description` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `method` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '1: GET; 2: Post',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `id_id_module`(`id_module` ASC) USING BTREE,
+  INDEX `id_id_module`(`id_module`) USING BTREE,
   CONSTRAINT `sys_function_of_controllers_ibfk_1` FOREIGN KEY (`id_module`) REFERENCES `sys_list_modules` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE = InnoDB AUTO_INCREMENT = 94 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -915,13 +912,13 @@ CREATE TABLE `sys_list_modules`  (
   `id_group` int NOT NULL,
   `content_config` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   `controller` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `description` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `active` int NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `foreign_key_module_group`(`id_group` ASC) USING BTREE,
+  INDEX `foreign_key_module_group`(`id_group`) USING BTREE,
   CONSTRAINT `sys_list_modules_ibfk_1` FOREIGN KEY (`id_group`) REFERENCES `sys_groups_modules` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE = InnoDB AUTO_INCREMENT = 50 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -953,11 +950,11 @@ CREATE TABLE `sys_logs`  (
   `action` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `user_id` int UNSIGNED NOT NULL,
   `detail` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `user_id`(`user_id` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 622 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+  INDEX `user_id`(`user_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 631 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_logs
@@ -1486,6 +1483,15 @@ INSERT INTO `sys_logs` VALUES (618, 'Đăng nhập', 'Đăng nhập', 1, '', '20
 INSERT INTO `sys_logs` VALUES (619, 'Đăng nhập', 'Đăng nhập', 1, '', '2022-12-23 15:25:16', '2022-12-23 15:25:16');
 INSERT INTO `sys_logs` VALUES (620, 'Đăng nhập', 'Đăng nhập', 1, '', '2022-12-27 10:34:31', '2022-12-27 10:34:31');
 INSERT INTO `sys_logs` VALUES (621, 'Đăng nhập', 'Đăng nhập', 1, '', '2022-12-27 12:16:59', '2022-12-27 12:16:59');
+INSERT INTO `sys_logs` VALUES (622, 'Đăng nhập', 'Đăng nhập', 1, '', '2022-12-27 23:46:14', '2022-12-27 23:46:14');
+INSERT INTO `sys_logs` VALUES (623, 'Video Youtube', 'Thêm', 1, 'Tên Video: test', '2022-12-28 00:31:51', '2022-12-28 00:31:51');
+INSERT INTO `sys_logs` VALUES (624, 'Video Youtube', 'Sửa', 1, 'Tên Video: test thành test', '2022-12-28 01:14:28', '2022-12-28 01:14:28');
+INSERT INTO `sys_logs` VALUES (625, 'Video Youtube', 'Sửa', 1, 'Tên Video: test thành test', '2022-12-28 01:14:53', '2022-12-28 01:14:53');
+INSERT INTO `sys_logs` VALUES (626, 'Video Youtube', 'Sửa', 1, 'Tên Video: asd1 thành asd1', '2022-12-28 01:15:02', '2022-12-28 01:15:02');
+INSERT INTO `sys_logs` VALUES (627, 'Video Youtube', 'Sửa', 1, 'Tên Video: test thành test', '2022-12-28 01:15:44', '2022-12-28 01:15:44');
+INSERT INTO `sys_logs` VALUES (628, 'Video Youtube', 'Sửa', 1, 'Tên Video: test thành test', '2022-12-28 01:17:12', '2022-12-28 01:17:12');
+INSERT INTO `sys_logs` VALUES (629, 'Video Youtube', 'Sửa', 1, 'Tên Video: test thành test', '2022-12-28 01:17:22', '2022-12-28 01:17:22');
+INSERT INTO `sys_logs` VALUES (630, 'Video Youtube', 'Sửa', 1, 'Tên Video: asd1 thành asd1', '2022-12-28 01:17:58', '2022-12-28 01:17:58');
 
 -- ----------------------------
 -- Table structure for sys_module_permissions_according_to_users

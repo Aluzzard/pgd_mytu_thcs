@@ -81,7 +81,7 @@ class AIVideoYoutubeController extends Controller {
                     $html .= '  <td><input type="checkbox" disabled="true"</td>';
                 }
                 $html .= '  <td>'.$video->name.'</td>';
-                $html .= '  <td><a href="'.$video->link.'" target="_blank">'.$video->link.'</a></td>';
+                $html .= '  <td><a href="https://www.youtube.com/watch?v='.$video->link.'" target="_blank">https://www.youtube.com/watch?v='.$video->link.'</a></td>';
                 $html .= '  <td>'.$video->content.'</td>';
                 $html .= '  <td>'.$video->created_at.'</td>';
                 $html .= '  <td>';
@@ -117,11 +117,11 @@ class AIVideoYoutubeController extends Controller {
             } else {
                 $input = $request->all();
                 if( substr($input['link'],0, 32) == 'https://www.youtube.com/watch?v=') {
-                    $input['link'] = 'https://www.youtube.com/embed/'.substr($input['link'],32, 43);
+                    $input['link'] = substr($input['link'],32, 43);
                 } else if ( substr($input['link'],0, 17) == 'https://youtu.be/'){
-                    $input['link'] = 'https://www.youtube.com/embed/'.substr($input['link'],17, 28);
+                    $input['link'] = substr($input['link'],17, 28);
                 } else if ( substr($input['link'],0, 30) == 'https://www.youtube.com/embed/'){
-                    $input['link'] = $input['link'];
+                    $input['link'] = substr($input['link'],32, 43);
                 } else {
                     return response()->json(['error'=> true, 'message' => 'Đường link liên kết không đúng định dạng!']);
                 }
@@ -142,11 +142,11 @@ class AIVideoYoutubeController extends Controller {
             } else {
                 $input = $request->all();
                 if( substr($input['link'],0, 32) == 'https://www.youtube.com/watch?v=') {
-                    $input['link'] = 'https://www.youtube.com/embed/'.substr($input['link'],32, 43);
+                    $input['link'] = substr($input['link'],32, 43);
                 } else if ( substr($input['link'],0, 17) == 'https://youtu.be/'){
-                    $input['link'] = 'https://www.youtube.com/embed/'.substr($input['link'],17, 28);
+                    $input['link'] = substr($input['link'],17, 28);
                 } else if ( substr($input['link'],0, 30) == 'https://www.youtube.com/embed/'){
-                    $input['link'] = $input['link'];
+                    $input['link'] = substr($input['link'],32, 43);
                 } else {
                     return response()->json(['error'=> true, 'message' => 'Đường link liên kết không đúng định dạng!']);
                 }

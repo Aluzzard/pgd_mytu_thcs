@@ -50,7 +50,7 @@ $(document).ready(function() {
             success: function(data) {
                 $('#modalVideo input[name="id"]').val(data.video.id);
                 $('#modalVideo input[name="name"]').val(data.video.name);
-                $('#modalVideo input[name="link"]').val(data.video.link);
+                $('#modalVideo input[name="link"]').val('https://www.youtube.com/watch?v='+data.video.link);
                 $('#modalVideo input[name="category"]').val(data.video.category);
                 $('#modalVideo textarea[name="content"]').val(data.video.content);
                 data.video.check_new == 1 ? $('input[name="check_new"]').attr('checked', true) : $('input[name="check_new"]').attr('checked', false);
