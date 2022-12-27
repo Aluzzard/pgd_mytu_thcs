@@ -11,7 +11,7 @@
  Target Server Version : 100422
  File Encoding         : 65001
 
- Date: 22/12/2022 17:07:12
+ Date: 27/12/2022 17:04:50
 */
 
 SET NAMES utf8mb4;
@@ -22,18 +22,18 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `account_administrators`;
 CREATE TABLE `account_administrators`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `account` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `role` int(10) UNSIGNED NULL DEFAULT NULL,
+  `role` int UNSIGNED NULL DEFAULT NULL,
   `numberphone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `avatar_path` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `active` bit(1) NULL DEFAULT NULL,
   `remember_token` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`, `account`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -47,17 +47,17 @@ INSERT INTO `account_administrators` VALUES (1, 'administrator', '$2y$10$WsOV9QU
 -- ----------------------------
 DROP TABLE IF EXISTS `account_users`;
 CREATE TABLE `account_users`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `account` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `numberphone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `avatar_path` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `active` int(11) NULL DEFAULT NULL,
+  `active` int NULL DEFAULT NULL,
   `remember_token` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`, `account`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -76,15 +76,15 @@ INSERT INTO `account_users` VALUES (9, 'admin2', '$2y$10$CS7pjfon.V7tEhu2UM5hNeV
 -- ----------------------------
 DROP TABLE IF EXISTS `module_advertisements`;
 CREATE TABLE `module_advertisements`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `is_active` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   `type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `show_from_date` timestamp(0) NULL DEFAULT NULL,
-  `show_to_date` timestamp(0) NULL DEFAULT NULL,
+  `show_from_date` timestamp NULL DEFAULT NULL,
+  `show_to_date` timestamp NULL DEFAULT NULL,
   `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -100,8 +100,8 @@ INSERT INTO `module_advertisements` VALUES (6, 'Quảng cáo giữa 2', '1', NUL
 -- ----------------------------
 DROP TABLE IF EXISTS `module_article_by_menus`;
 CREATE TABLE `module_article_by_menus`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
   `module_permissions` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `action` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'view, edit, delete',
   PRIMARY KEY (`id`) USING BTREE
@@ -123,9 +123,9 @@ INSERT INTO `module_article_by_menus` VALUES (72, 6, NULL, 'add');
 -- ----------------------------
 DROP TABLE IF EXISTS `module_articles`;
 CREATE TABLE `module_articles`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `category_id` int(10) UNSIGNED NOT NULL,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` int UNSIGNED NOT NULL,
+  `category_id` int UNSIGNED NOT NULL,
   `title` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
@@ -134,13 +134,13 @@ CREATE TABLE `module_articles`  (
   `new_news` tinyint(1) NOT NULL DEFAULT 0,
   `featured_news` tinyint(1) NOT NULL DEFAULT 0,
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
-  `show_from_date` timestamp(0) NULL DEFAULT NULL,
-  `show_to_date` timestamp(0) NULL DEFAULT NULL,
+  `show_from_date` timestamp NULL DEFAULT NULL,
+  `show_to_date` timestamp NULL DEFAULT NULL,
   `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `meta_title` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `meta_description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `posts_user_id_index`(`user_id`) USING BTREE,
   INDEX `posts_category_id_index`(`category_id`) USING BTREE,
@@ -174,88 +174,88 @@ INSERT INTO `module_articles` VALUES (80, 1, 87, 'CHÀO MỪNG NGÀY CHUYỂN Đ
 -- ----------------------------
 DROP TABLE IF EXISTS `module_articles_categories`;
 CREATE TABLE `module_articles_categories`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `slug` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `description` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `id_parent` int(11) NOT NULL DEFAULT 0,
+  `id_parent` int NOT NULL DEFAULT 0,
   `is_parent` bit(1) NOT NULL DEFAULT b'0',
   `url` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `display_method` tinyint(4) NOT NULL COMMENT 'Kiểu hiển thị',
+  `display_method` tinyint NOT NULL COMMENT 'Kiểu hiển thị',
   `status` tinyint(1) NOT NULL DEFAULT 0,
   `new_window` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Bật cửa sổ mới',
   `show_h_menu` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Hiện trên menu ngang',
-  `display_h_order` int(11) NULL DEFAULT NULL COMMENT 'Thú tự',
+  `display_h_order` int NULL DEFAULT NULL COMMENT 'Thú tự',
   `show_v_menu` tinyint(1) NOT NULL DEFAULT 0,
-  `display_v_order` int(11) NULL DEFAULT NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `display_v_order` int NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 159 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of module_articles_categories
 -- ----------------------------
-INSERT INTO `module_articles_categories` VALUES (5, 'Trang chủ', 'trang-chu', NULL, 0, b'0', '/', 1, 1, 0, 1, 0, 0, NULL, '2022-03-30 15:55:13', '2022-12-13 16:36:58');
-INSERT INTO `module_articles_categories` VALUES (6, 'Giới thiệu', 'gioi-thieu', NULL, 0, b'0', NULL, 1, 1, 0, 1, 1, 0, NULL, '2022-03-30 16:30:41', '2022-08-06 16:36:40');
-INSERT INTO `module_articles_categories` VALUES (8, 'Tin tức - Sự kiện', 'tin-tuc-su-kien', NULL, 0, b'0', NULL, 1, 1, 0, 1, 5, 0, NULL, '2022-03-30 16:31:04', '2022-12-13 16:49:40');
-INSERT INTO `module_articles_categories` VALUES (9, 'Liên hệ', 'lien-he', NULL, 0, b'0', NULL, 1, 1, 0, 1, 20, 0, NULL, '2022-03-30 16:31:13', '2022-12-14 15:49:41');
-INSERT INTO `module_articles_categories` VALUES (82, 'Cơ cấu tổ chức', 'co-cau-to-chuc', NULL, 0, b'0', NULL, 1, 1, 0, 1, 2, 0, NULL, '2022-11-30 00:52:50', '2022-12-13 16:42:49');
-INSERT INTO `module_articles_categories` VALUES (84, 'Ban giám hiệu', 'ban-giam-hieu', NULL, 82, b'0', NULL, 1, 1, 0, 1, 1, 0, NULL, '2022-11-30 00:53:38', '2022-12-13 16:43:14');
-INSERT INTO `module_articles_categories` VALUES (85, 'Công đoàn cơ sở', 'cong-doan-co-so', NULL, 82, b'0', NULL, 1, 1, 0, 1, 2, 0, NULL, '2022-11-30 00:53:46', '2022-12-13 16:43:32');
-INSERT INTO `module_articles_categories` VALUES (86, 'Đoàn - Đội', 'doan-doi', NULL, 82, b'0', NULL, 1, 1, 0, 1, 3, 0, NULL, '2022-11-30 00:53:52', '2022-12-13 16:43:53');
+INSERT INTO `module_articles_categories` VALUES (5, 'Trang chủ', 'trang-chu', NULL, 0, b'0', '/', 2, 1, 0, 1, 0, 0, NULL, '2022-03-30 15:55:13', '2022-12-13 16:36:58');
+INSERT INTO `module_articles_categories` VALUES (6, 'Giới thiệu', 'gioi-thieu', NULL, 0, b'0', NULL, 1, 1, 0, 1, 1, 0, NULL, '2022-03-30 16:30:41', '2022-12-27 10:34:44');
+INSERT INTO `module_articles_categories` VALUES (8, 'Tin tức - Sự kiện', 'tin-tuc-su-kien', NULL, 0, b'0', NULL, 2, 1, 0, 1, 5, 0, NULL, '2022-03-30 16:31:04', '2022-12-13 16:49:40');
+INSERT INTO `module_articles_categories` VALUES (9, 'Liên hệ', 'lien-he', NULL, 0, b'0', NULL, 2, 1, 0, 1, 20, 0, NULL, '2022-03-30 16:31:13', '2022-12-14 15:49:41');
+INSERT INTO `module_articles_categories` VALUES (82, 'Cơ cấu tổ chức', 'co-cau-to-chuc', NULL, 0, b'0', NULL, 2, 1, 0, 1, 2, 0, NULL, '2022-11-30 00:52:50', '2022-12-13 16:42:49');
+INSERT INTO `module_articles_categories` VALUES (84, 'Ban giám hiệu', 'ban-giam-hieu', NULL, 82, b'0', NULL, 2, 1, 0, 1, 1, 0, NULL, '2022-11-30 00:53:38', '2022-12-13 16:43:14');
+INSERT INTO `module_articles_categories` VALUES (85, 'Công đoàn cơ sở', 'cong-doan-co-so', NULL, 82, b'0', NULL, 2, 1, 0, 1, 2, 0, NULL, '2022-11-30 00:53:46', '2022-12-13 16:43:32');
+INSERT INTO `module_articles_categories` VALUES (86, 'Đoàn - Đội', 'doan-doi', NULL, 82, b'0', NULL, 2, 1, 0, 1, 3, 0, NULL, '2022-11-30 00:53:52', '2022-12-13 16:43:53');
 INSERT INTO `module_articles_categories` VALUES (87, 'Hoạt động của Trường', 'hoat-dong-cua-truong', NULL, 8, b'0', NULL, 2, 1, 0, 1, 1, 0, NULL, '2022-11-30 00:54:28', '2022-12-14 10:22:18');
-INSERT INTO `module_articles_categories` VALUES (88, 'Hoạt động Công đoàn', 'hoat-dong-cong-doan', NULL, 8, b'0', NULL, 1, 1, 0, 1, 2, 0, NULL, '2022-11-30 12:54:27', '2022-12-14 10:22:32');
-INSERT INTO `module_articles_categories` VALUES (89, 'Hoạt động Đoàn - Đội', 'hoat-dong-doan-doi', NULL, 8, b'0', NULL, 1, 1, 0, 1, 3, 0, NULL, '2022-11-30 12:55:58', '2022-12-14 10:22:54');
-INSERT INTO `module_articles_categories` VALUES (97, 'Hoạt động chuyên môn', 'hoat-dong-chuyen-mon', NULL, 8, b'0', NULL, 1, 1, 0, 1, 4, 0, NULL, '2022-11-30 16:11:37', '2022-12-14 10:23:06');
-INSERT INTO `module_articles_categories` VALUES (98, 'Thông báo Phòng', 'thong-bao-phong', NULL, 8, b'0', NULL, 1, 1, 0, 1, 5, 0, NULL, '2022-11-30 16:12:26', '2022-12-14 10:24:04');
-INSERT INTO `module_articles_categories` VALUES (99, 'Tin tức từ Phòng', 'tin-tuc-tu-phong', NULL, 8, b'0', NULL, 1, 1, 0, 1, 6, 0, NULL, '2022-11-30 16:13:00', '2022-12-14 10:24:18');
-INSERT INTO `module_articles_categories` VALUES (100, 'Thông báo từ Sở', 'thong-bao-tu-so', NULL, 8, b'0', NULL, 1, 1, 0, 1, 7, 0, NULL, '2022-11-30 16:13:23', '2022-12-14 10:24:37');
-INSERT INTO `module_articles_categories` VALUES (101, 'Tin tức từ Sở', 'tin-tuc-tu-so', NULL, 8, b'0', NULL, 1, 1, 0, 1, 8, 0, NULL, '2022-11-30 16:14:12', '2022-12-14 10:24:44');
-INSERT INTO `module_articles_categories` VALUES (102, 'Kế hoạch giáo dục', 'ke-hoach-giao-duc', NULL, 0, b'0', NULL, 1, 1, 0, 1, 3, 0, NULL, '2022-11-30 16:15:06', '2022-12-13 16:46:21');
-INSERT INTO `module_articles_categories` VALUES (103, 'Thời khóa biểu', 'thoi-khoa-bieu', NULL, 102, b'0', NULL, 1, 1, 0, 1, 1, 0, NULL, '2022-11-30 16:15:30', '2022-12-13 16:46:57');
-INSERT INTO `module_articles_categories` VALUES (104, 'Thi kiểm tra', 'thi-kiem-tra', NULL, 102, b'0', NULL, 1, 1, 0, 1, 2, 0, NULL, '2022-11-30 16:15:55', '2022-12-13 16:47:00');
-INSERT INTO `module_articles_categories` VALUES (106, 'Văn bản', 'van-ban', NULL, 0, b'0', NULL, 1, 1, 0, 1, 4, 0, NULL, '2022-11-30 16:19:35', '2022-12-13 16:49:14');
-INSERT INTO `module_articles_categories` VALUES (116, 'Tài nguyên', 'tai-nguyen', NULL, 0, b'0', NULL, 1, 1, 0, 1, 6, 0, NULL, '2022-11-30 16:30:16', '2022-12-14 16:35:15');
-INSERT INTO `module_articles_categories` VALUES (122, 'Thư viện ảnh', 'thu-vien-anh', NULL, 116, b'0', NULL, 1, 1, 0, 1, 2, 0, 2, '2022-11-30 16:33:18', '2022-12-14 10:46:29');
-INSERT INTO `module_articles_categories` VALUES (123, 'Video Clip', 'video-clip', NULL, 116, b'0', NULL, 1, 1, 0, 1, 3, 1, 3, '2022-11-30 16:33:38', '2022-12-14 10:46:21');
-INSERT INTO `module_articles_categories` VALUES (138, 'Tổ văn phòng', 'to-van-phong', NULL, 82, b'0', NULL, 1, 1, 0, 1, 4, 0, NULL, '2022-12-13 16:44:04', '2022-12-13 16:44:25');
-INSERT INTO `module_articles_categories` VALUES (139, 'Tổ chuyên môn', 'to-chuyen-mon', NULL, 82, b'0', NULL, 1, 1, 0, 1, 5, 0, NULL, '2022-12-13 16:44:21', '2022-12-13 16:44:27');
-INSERT INTO `module_articles_categories` VALUES (140, 'Ban đại diện cha mẹ học sinh', 'ban-dai-dien-cha-me-hoc-sinh', NULL, 82, b'0', NULL, 1, 1, 0, 1, 6, 0, NULL, '2022-12-13 16:44:57', '2022-12-13 16:45:02');
-INSERT INTO `module_articles_categories` VALUES (141, 'Lịch công tác tuần BGH', 'lich-cong-tac-tuan-bgh', NULL, 8, b'0', NULL, 1, 1, 0, 1, 9, 0, NULL, '2022-12-14 10:25:07', '2022-12-14 10:26:58');
-INSERT INTO `module_articles_categories` VALUES (142, 'Công khai theo TT36', 'cong-khai-theo-tt36', NULL, 8, b'0', NULL, 1, 1, 0, 1, 10, 0, NULL, '2022-12-14 10:25:20', '2022-12-14 10:27:09');
-INSERT INTO `module_articles_categories` VALUES (143, 'Kế hoạch Năm - Tháng', 'ke-hoach-nam-thang', NULL, 8, b'0', NULL, 1, 1, 0, 1, 11, 0, NULL, '2022-12-14 10:25:35', '2022-12-14 10:27:15');
-INSERT INTO `module_articles_categories` VALUES (144, 'Thông báo', 'thong-bao', NULL, 8, b'0', NULL, 1, 1, 0, 1, 12, 0, NULL, '2022-12-14 10:25:51', '2022-12-14 10:27:26');
-INSERT INTO `module_articles_categories` VALUES (145, 'Hoạt động NGLL', 'hoat-dong-ngll', NULL, 8, b'0', NULL, 1, 1, 0, 1, 13, 0, NULL, '2022-12-14 10:26:00', '2022-12-14 10:27:35');
-INSERT INTO `module_articles_categories` VALUES (146, 'Công tác Nội trú', 'cong-tac-noi-tru', NULL, 8, b'0', NULL, 1, 1, 0, 1, 14, 0, NULL, '2022-12-14 10:26:16', '2022-12-14 10:27:43');
-INSERT INTO `module_articles_categories` VALUES (147, 'Ban đại diện CMHS', 'ban-dai-dien-cmhs', NULL, 8, b'0', NULL, 1, 1, 0, 1, 15, 0, NULL, '2022-12-14 10:26:26', '2022-12-14 10:27:51');
-INSERT INTO `module_articles_categories` VALUES (148, 'Hoạt động tổ Hóa - Sinh - Công nghệ - Thể dục', 'hoat-dong-to-hoa-sinh-cong-nghe-the-duc', NULL, 97, b'0', NULL, 1, 1, 0, 1, 1, 0, NULL, '2022-12-14 10:28:41', '2022-12-14 10:29:25');
-INSERT INTO `module_articles_categories` VALUES (149, 'Hoạt động tổ Toán - Lý - Tin', 'hoat-dong-to-toan-ly-tin', NULL, 97, b'0', NULL, 1, 1, 0, 1, 3, 0, NULL, '2022-12-14 10:28:58', '2022-12-14 10:29:35');
-INSERT INTO `module_articles_categories` VALUES (150, 'Hoạt động tổ Xã hội', 'hoat-dong-to-xa-hoi', NULL, 97, b'0', NULL, 1, 1, 0, 1, 2, 0, NULL, '2022-12-14 10:29:08', '2022-12-14 10:29:30');
-INSERT INTO `module_articles_categories` VALUES (151, 'Đề thi - Kiểm tra', 'de-thi-kiem-tra', NULL, 116, b'0', NULL, 1, 1, 0, 1, 1, 0, NULL, '2022-12-14 10:44:35', '2022-12-14 10:45:57');
-INSERT INTO `module_articles_categories` VALUES (152, 'Bài giảng điện tử', 'bai-giang-dien-tu', NULL, 116, b'0', NULL, 1, 1, 0, 1, 4, 0, NULL, '2022-12-14 10:45:03', '2022-12-14 10:46:38');
-INSERT INTO `module_articles_categories` VALUES (153, 'Giáo án mẫu', 'giao-an-mau', NULL, 116, b'0', NULL, 1, 1, 0, 1, 5, 0, NULL, '2022-12-14 10:45:11', '2022-12-14 10:46:44');
-INSERT INTO `module_articles_categories` VALUES (154, 'Phần mềm', 'phan-mem', NULL, 116, b'0', NULL, 1, 1, 0, 1, 6, 0, NULL, '2022-12-14 10:45:27', '2022-12-14 10:46:53');
-INSERT INTO `module_articles_categories` VALUES (155, 'Đề tài, SK- KN', 'de-tai-sk-kn', NULL, 116, b'0', NULL, 1, 1, 0, 1, 7, 0, NULL, '2022-12-14 10:45:30', '2022-12-14 10:46:58');
-INSERT INTO `module_articles_categories` VALUES (156, 'Đề thi', 'de-thi', NULL, 151, b'0', NULL, 1, 1, 0, 1, 1, 0, NULL, '2022-12-14 10:47:07', '2022-12-14 10:47:26');
-INSERT INTO `module_articles_categories` VALUES (157, 'Đề kiểm tra', 'de-kiem-tra', NULL, 151, b'0', NULL, 1, 1, 0, 1, 2, 0, NULL, '2022-12-14 10:47:12', '2022-12-14 10:47:32');
-INSERT INTO `module_articles_categories` VALUES (158, 'Kỹ năng sống', 'ky-nang-song', NULL, 0, b'0', NULL, 1, 1, 0, 0, 999, 1, 0, '2022-12-14 16:34:57', '2022-12-19 10:13:30');
+INSERT INTO `module_articles_categories` VALUES (88, 'Hoạt động Công đoàn', 'hoat-dong-cong-doan', NULL, 8, b'0', NULL, 2, 1, 0, 1, 2, 0, NULL, '2022-11-30 12:54:27', '2022-12-14 10:22:32');
+INSERT INTO `module_articles_categories` VALUES (89, 'Hoạt động Đoàn - Đội', 'hoat-dong-doan-doi', NULL, 8, b'0', NULL, 2, 1, 0, 1, 3, 0, NULL, '2022-11-30 12:55:58', '2022-12-14 10:22:54');
+INSERT INTO `module_articles_categories` VALUES (97, 'Hoạt động chuyên môn', 'hoat-dong-chuyen-mon', NULL, 8, b'0', NULL, 2, 1, 0, 1, 4, 0, NULL, '2022-11-30 16:11:37', '2022-12-14 10:23:06');
+INSERT INTO `module_articles_categories` VALUES (98, 'Thông báo Phòng', 'thong-bao-phong', NULL, 8, b'0', NULL, 2, 1, 0, 1, 5, 0, NULL, '2022-11-30 16:12:26', '2022-12-14 10:24:04');
+INSERT INTO `module_articles_categories` VALUES (99, 'Tin tức từ Phòng', 'tin-tuc-tu-phong', NULL, 8, b'0', NULL, 2, 1, 0, 1, 6, 0, NULL, '2022-11-30 16:13:00', '2022-12-14 10:24:18');
+INSERT INTO `module_articles_categories` VALUES (100, 'Thông báo từ Sở', 'thong-bao-tu-so', NULL, 8, b'0', NULL, 2, 1, 0, 1, 7, 0, NULL, '2022-11-30 16:13:23', '2022-12-14 10:24:37');
+INSERT INTO `module_articles_categories` VALUES (101, 'Tin tức từ Sở', 'tin-tuc-tu-so', NULL, 8, b'0', NULL, 2, 1, 0, 1, 8, 0, NULL, '2022-11-30 16:14:12', '2022-12-14 10:24:44');
+INSERT INTO `module_articles_categories` VALUES (102, 'Kế hoạch giáo dục', 'ke-hoach-giao-duc', NULL, 0, b'0', NULL, 2, 1, 0, 1, 3, 0, NULL, '2022-11-30 16:15:06', '2022-12-13 16:46:21');
+INSERT INTO `module_articles_categories` VALUES (103, 'Thời khóa biểu', 'thoi-khoa-bieu', NULL, 102, b'0', NULL, 2, 1, 0, 1, 1, 0, NULL, '2022-11-30 16:15:30', '2022-12-13 16:46:57');
+INSERT INTO `module_articles_categories` VALUES (104, 'Thi kiểm tra', 'thi-kiem-tra', NULL, 102, b'0', NULL, 2, 1, 0, 1, 2, 0, NULL, '2022-11-30 16:15:55', '2022-12-13 16:47:00');
+INSERT INTO `module_articles_categories` VALUES (106, 'Văn bản', 'van-ban', NULL, 0, b'0', NULL, 2, 1, 0, 1, 4, 0, NULL, '2022-11-30 16:19:35', '2022-12-13 16:49:14');
+INSERT INTO `module_articles_categories` VALUES (116, 'Tài nguyên', 'tai-nguyen', NULL, 0, b'0', NULL, 2, 1, 0, 1, 6, 0, NULL, '2022-11-30 16:30:16', '2022-12-14 16:35:15');
+INSERT INTO `module_articles_categories` VALUES (122, 'Thư viện ảnh', 'thu-vien-anh', NULL, 116, b'0', NULL, 2, 1, 0, 1, 2, 0, 2, '2022-11-30 16:33:18', '2022-12-14 10:46:29');
+INSERT INTO `module_articles_categories` VALUES (123, 'Video Clip', 'video-clip', NULL, 116, b'0', NULL, 2, 1, 0, 1, 3, 1, 3, '2022-11-30 16:33:38', '2022-12-14 10:46:21');
+INSERT INTO `module_articles_categories` VALUES (138, 'Tổ văn phòng', 'to-van-phong', NULL, 82, b'0', NULL, 2, 1, 0, 1, 4, 0, NULL, '2022-12-13 16:44:04', '2022-12-13 16:44:25');
+INSERT INTO `module_articles_categories` VALUES (139, 'Tổ chuyên môn', 'to-chuyen-mon', NULL, 82, b'0', NULL, 2, 1, 0, 1, 5, 0, NULL, '2022-12-13 16:44:21', '2022-12-13 16:44:27');
+INSERT INTO `module_articles_categories` VALUES (140, 'Ban đại diện cha mẹ học sinh', 'ban-dai-dien-cha-me-hoc-sinh', NULL, 82, b'0', NULL, 2, 1, 0, 1, 6, 0, NULL, '2022-12-13 16:44:57', '2022-12-13 16:45:02');
+INSERT INTO `module_articles_categories` VALUES (141, 'Lịch công tác tuần BGH', 'lich-cong-tac-tuan-bgh', NULL, 8, b'0', NULL, 2, 1, 0, 1, 9, 0, NULL, '2022-12-14 10:25:07', '2022-12-14 10:26:58');
+INSERT INTO `module_articles_categories` VALUES (142, 'Công khai theo TT36', 'cong-khai-theo-tt36', NULL, 8, b'0', NULL, 2, 1, 0, 1, 10, 0, NULL, '2022-12-14 10:25:20', '2022-12-14 10:27:09');
+INSERT INTO `module_articles_categories` VALUES (143, 'Kế hoạch Năm - Tháng', 'ke-hoach-nam-thang', NULL, 8, b'0', NULL, 2, 1, 0, 1, 11, 0, NULL, '2022-12-14 10:25:35', '2022-12-14 10:27:15');
+INSERT INTO `module_articles_categories` VALUES (144, 'Thông báo', 'thong-bao', NULL, 8, b'0', NULL, 2, 1, 0, 1, 12, 0, NULL, '2022-12-14 10:25:51', '2022-12-14 10:27:26');
+INSERT INTO `module_articles_categories` VALUES (145, 'Hoạt động NGLL', 'hoat-dong-ngll', NULL, 8, b'0', NULL, 2, 1, 0, 1, 13, 0, NULL, '2022-12-14 10:26:00', '2022-12-14 10:27:35');
+INSERT INTO `module_articles_categories` VALUES (146, 'Công tác Nội trú', 'cong-tac-noi-tru', NULL, 8, b'0', NULL, 2, 1, 0, 1, 14, 0, NULL, '2022-12-14 10:26:16', '2022-12-14 10:27:43');
+INSERT INTO `module_articles_categories` VALUES (147, 'Ban đại diện CMHS', 'ban-dai-dien-cmhs', NULL, 8, b'0', NULL, 2, 1, 0, 1, 15, 0, NULL, '2022-12-14 10:26:26', '2022-12-14 10:27:51');
+INSERT INTO `module_articles_categories` VALUES (148, 'Hoạt động tổ Hóa - Sinh - Công nghệ - Thể dục', 'hoat-dong-to-hoa-sinh-cong-nghe-the-duc', NULL, 97, b'0', NULL, 2, 1, 0, 1, 1, 0, NULL, '2022-12-14 10:28:41', '2022-12-14 10:29:25');
+INSERT INTO `module_articles_categories` VALUES (149, 'Hoạt động tổ Toán - Lý - Tin', 'hoat-dong-to-toan-ly-tin', NULL, 97, b'0', NULL, 2, 1, 0, 1, 3, 0, NULL, '2022-12-14 10:28:58', '2022-12-14 10:29:35');
+INSERT INTO `module_articles_categories` VALUES (150, 'Hoạt động tổ Xã hội', 'hoat-dong-to-xa-hoi', NULL, 97, b'0', NULL, 2, 1, 0, 1, 2, 0, NULL, '2022-12-14 10:29:08', '2022-12-14 10:29:30');
+INSERT INTO `module_articles_categories` VALUES (151, 'Đề thi - Kiểm tra', 'de-thi-kiem-tra', NULL, 116, b'0', NULL, 2, 1, 0, 1, 1, 0, NULL, '2022-12-14 10:44:35', '2022-12-14 10:45:57');
+INSERT INTO `module_articles_categories` VALUES (152, 'Bài giảng điện tử', 'bai-giang-dien-tu', NULL, 116, b'0', NULL, 2, 1, 0, 1, 4, 0, NULL, '2022-12-14 10:45:03', '2022-12-14 10:46:38');
+INSERT INTO `module_articles_categories` VALUES (153, 'Giáo án mẫu', 'giao-an-mau', NULL, 116, b'0', NULL, 2, 1, 0, 1, 5, 0, NULL, '2022-12-14 10:45:11', '2022-12-14 10:46:44');
+INSERT INTO `module_articles_categories` VALUES (154, 'Phần mềm', 'phan-mem', NULL, 116, b'0', NULL, 2, 1, 0, 1, 6, 0, NULL, '2022-12-14 10:45:27', '2022-12-14 10:46:53');
+INSERT INTO `module_articles_categories` VALUES (155, 'Đề tài, SK- KN', 'de-tai-sk-kn', NULL, 116, b'0', NULL, 2, 1, 0, 1, 7, 0, NULL, '2022-12-14 10:45:30', '2022-12-14 10:46:58');
+INSERT INTO `module_articles_categories` VALUES (156, 'Đề thi', 'de-thi', NULL, 151, b'0', NULL, 2, 1, 0, 1, 1, 0, NULL, '2022-12-14 10:47:07', '2022-12-14 10:47:26');
+INSERT INTO `module_articles_categories` VALUES (157, 'Đề kiểm tra', 'de-kiem-tra', NULL, 151, b'0', NULL, 2, 1, 0, 1, 2, 0, NULL, '2022-12-14 10:47:12', '2022-12-14 10:47:32');
+INSERT INTO `module_articles_categories` VALUES (158, 'Kỹ năng sống', 'ky-nang-song', NULL, 0, b'0', NULL, 2, 1, 0, 0, 999, 1, 0, '2022-12-14 16:34:57', '2022-12-19 10:13:30');
 
 -- ----------------------------
 -- Table structure for module_banner_footers
 -- ----------------------------
 DROP TABLE IF EXISTS `module_banner_footers`;
 CREATE TABLE `module_banner_footers`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `is_default` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   `is_active` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   `type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `show_from_date` timestamp(0) NULL DEFAULT NULL,
-  `show_to_date` timestamp(0) NULL DEFAULT NULL,
+  `show_from_date` timestamp NULL DEFAULT NULL,
+  `show_to_date` timestamp NULL DEFAULT NULL,
   `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -270,15 +270,15 @@ INSERT INTO `module_banner_footers` VALUES (2, 'Footer', '1', '1', '2', NULL, NU
 -- ----------------------------
 DROP TABLE IF EXISTS `module_contacts`;
 CREATE TABLE `module_contacts`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
-  `numberphone` int(11) NULL DEFAULT NULL,
+  `numberphone` int NULL DEFAULT NULL,
   `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
   `status` tinyint(1) NULL DEFAULT NULL,
-  `user_id` int(11) NULL DEFAULT NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `user_id` int NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = DYNAMIC;
 
@@ -294,12 +294,12 @@ INSERT INTO `module_contacts` VALUES (15, 'Thái Đình Cẩn', 854145242, 'thai
 -- ----------------------------
 DROP TABLE IF EXISTS `module_image_libraries`;
 CREATE TABLE `module_image_libraries`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `description` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `status` int(11) NOT NULL DEFAULT 0,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `status` int NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 41 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
@@ -315,12 +315,12 @@ INSERT INTO `module_image_libraries` VALUES (40, 'Hội khỏe Phù Đổng cấ
 -- ----------------------------
 DROP TABLE IF EXISTS `module_rules_of_laws`;
 CREATE TABLE `module_rules_of_laws`  (
-  `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` smallint UNSIGNED NOT NULL AUTO_INCREMENT,
   `number` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `field_id` smallint(5) UNSIGNED NOT NULL,
-  `type_id` smallint(5) UNSIGNED NOT NULL,
-  `organization_id` smallint(5) UNSIGNED NOT NULL,
+  `field_id` smallint UNSIGNED NOT NULL,
+  `type_id` smallint UNSIGNED NOT NULL,
+  `organization_id` smallint UNSIGNED NOT NULL,
   `signor` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   `date_issue` date NULL DEFAULT NULL,
   `date_effect` date NOT NULL,
@@ -340,7 +340,7 @@ INSERT INTO `module_rules_of_laws` VALUES (6, '2083/QĐ-UBND', 'QUYẾT ĐỊNH 
 -- ----------------------------
 DROP TABLE IF EXISTS `module_school_timetables`;
 CREATE TABLE `module_school_timetables`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `date` date NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
@@ -355,14 +355,14 @@ CREATE TABLE `module_school_timetables`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `module_schools`;
 CREATE TABLE `module_schools`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `category_id` int(11) NOT NULL,
+  `category_id` int NOT NULL,
   `slug` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `sort` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `is_active` int(11) NOT NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `is_active` int NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 70 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
@@ -413,12 +413,12 @@ INSERT INTO `module_schools` VALUES (69, 'Trường THCS Thuận Hưng', 3, 'htt
 -- ----------------------------
 DROP TABLE IF EXISTS `module_steering_documents`;
 CREATE TABLE `module_steering_documents`  (
-  `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` smallint UNSIGNED NOT NULL AUTO_INCREMENT,
   `number` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `content` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `field_id` smallint(5) UNSIGNED NOT NULL,
-  `type_id` smallint(5) UNSIGNED NOT NULL,
-  `organization_id` smallint(5) UNSIGNED NOT NULL,
+  `field_id` smallint UNSIGNED NOT NULL,
+  `type_id` smallint UNSIGNED NOT NULL,
+  `organization_id` smallint UNSIGNED NOT NULL,
   `signor` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   `date_issue` date NULL DEFAULT NULL,
   `date_effect` date NOT NULL,
@@ -439,19 +439,19 @@ INSERT INTO `module_steering_documents` VALUES (7, '74/PGDĐT-NVTrH', 'Mời h�
 -- ----------------------------
 DROP TABLE IF EXISTS `module_video_youtubes`;
 CREATE TABLE `module_video_youtubes`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `link` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `category_id` int(11) NULL DEFAULT NULL,
+  `category_id` int NULL DEFAULT NULL,
   `check_new` tinyint(1) NOT NULL DEFAULT 0,
   `check_outstanding` tinyint(1) NOT NULL DEFAULT 0,
   `check_internal` tinyint(1) NOT NULL DEFAULT 0,
   `check_active` tinyint(1) NOT NULL DEFAULT 0,
-  `show_from_date` timestamp(0) NULL DEFAULT NULL,
-  `show_to_date` timestamp(0) NULL DEFAULT NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `show_from_date` timestamp NULL DEFAULT NULL,
+  `show_to_date` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -465,11 +465,11 @@ INSERT INTO `module_video_youtubes` VALUES (2, 'asd1', 'https://www.youtube.com/
 -- ----------------------------
 DROP TABLE IF EXISTS `module_visitors`;
 CREATE TABLE `module_visitors`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `counter` int(11) NOT NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `counter` int NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`, `name`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = DYNAMIC;
 
@@ -477,24 +477,24 @@ CREATE TABLE `module_visitors`  (
 -- Records of module_visitors
 -- ----------------------------
 INSERT INTO `module_visitors` VALUES (1, 'today', 1, '2021-07-06 17:02:06', '2022-12-12 16:54:02');
-INSERT INTO `module_visitors` VALUES (2, 'week', 7, '2021-07-06 17:02:06', '2022-12-22 14:33:31');
-INSERT INTO `module_visitors` VALUES (3, 'month', 35, '2021-07-06 17:02:06', '2022-12-22 14:33:32');
-INSERT INTO `module_visitors` VALUES (4, 'year', 35, '2021-07-06 17:02:06', '2022-12-22 14:33:32');
-INSERT INTO `module_visitors` VALUES (5, 'total', 35, '2021-07-06 17:02:06', '2022-12-22 14:33:32');
+INSERT INTO `module_visitors` VALUES (2, 'week', 6, '2021-07-06 17:02:06', '2022-12-27 16:23:51');
+INSERT INTO `module_visitors` VALUES (3, 'month', 42, '2021-07-06 17:02:06', '2022-12-27 16:23:51');
+INSERT INTO `module_visitors` VALUES (4, 'year', 42, '2021-07-06 17:02:06', '2022-12-27 16:23:51');
+INSERT INTO `module_visitors` VALUES (5, 'total', 42, '2021-07-06 17:02:06', '2022-12-27 16:23:51');
 
 -- ----------------------------
 -- Table structure for module_website_links
 -- ----------------------------
 DROP TABLE IF EXISTS `module_website_links`;
 CREATE TABLE `module_website_links`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `slug` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `sort` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `status` int(11) NULL DEFAULT NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `status` int NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 32 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
@@ -517,18 +517,18 @@ INSERT INTO `module_website_links` VALUES (31, 'Sở Giáo dục và Đào tạo
 -- ----------------------------
 DROP TABLE IF EXISTS `partial_module_library_images`;
 CREATE TABLE `partial_module_library_images`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `description` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `order` int(11) NULL DEFAULT 0,
+  `order` int NULL DEFAULT 0,
   `path` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 1,
-  `library_id` int(10) UNSIGNED NOT NULL,
+  `status` int NOT NULL DEFAULT 1,
+  `library_id` int UNSIGNED NOT NULL,
   `url` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `library_id`(`library_id`) USING BTREE
+  INDEX `library_id`(`library_id` ASC) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 268 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
@@ -562,7 +562,7 @@ INSERT INTO `partial_module_library_images` VALUES (267, 'FjJy_IMG_20211209_1954
 -- ----------------------------
 DROP TABLE IF EXISTS `partial_module_rules_of_law_by_fields`;
 CREATE TABLE `partial_module_rules_of_law_by_fields`  (
-  `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` smallint UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = DYNAMIC;
@@ -577,7 +577,7 @@ INSERT INTO `partial_module_rules_of_law_by_fields` VALUES (1, 'Giáo dục');
 -- ----------------------------
 DROP TABLE IF EXISTS `partial_module_rules_of_law_by_organizations`;
 CREATE TABLE `partial_module_rules_of_law_by_organizations`  (
-  `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` smallint UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = DYNAMIC;
@@ -594,7 +594,7 @@ INSERT INTO `partial_module_rules_of_law_by_organizations` VALUES (14, 'HĐND-UB
 -- ----------------------------
 DROP TABLE IF EXISTS `partial_module_rules_of_law_by_types`;
 CREATE TABLE `partial_module_rules_of_law_by_types`  (
-  `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` smallint UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = DYNAMIC;
@@ -610,7 +610,7 @@ INSERT INTO `partial_module_rules_of_law_by_types` VALUES (5, 'Quyết định')
 -- ----------------------------
 DROP TABLE IF EXISTS `partial_module_steering_document_by_fields`;
 CREATE TABLE `partial_module_steering_document_by_fields`  (
-  `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` smallint UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = DYNAMIC;
@@ -625,7 +625,7 @@ INSERT INTO `partial_module_steering_document_by_fields` VALUES (1, 'Giáo dục
 -- ----------------------------
 DROP TABLE IF EXISTS `partial_module_steering_document_issued_by_organizations`;
 CREATE TABLE `partial_module_steering_document_issued_by_organizations`  (
-  `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` smallint UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = DYNAMIC;
@@ -642,7 +642,7 @@ INSERT INTO `partial_module_steering_document_issued_by_organizations` VALUES (1
 -- ----------------------------
 DROP TABLE IF EXISTS `partial_module_steering_document_of_types`;
 CREATE TABLE `partial_module_steering_document_of_types`  (
-  `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` smallint UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = DYNAMIC;
@@ -659,18 +659,18 @@ INSERT INTO `partial_module_steering_document_of_types` VALUES (5, 'Công văn')
 -- ----------------------------
 DROP TABLE IF EXISTS `partial_module_tourism_destination_images`;
 CREATE TABLE `partial_module_tourism_destination_images`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `description` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `order` int(11) NULL DEFAULT 0,
+  `order` int NULL DEFAULT 0,
   `path` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 1,
-  `destination_id` int(11) NOT NULL,
+  `status` int NOT NULL DEFAULT 1,
+  `destination_id` int NOT NULL,
   `url` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `library_id`(`destination_id`) USING BTREE
+  INDEX `library_id`(`destination_id` ASC) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 252 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
@@ -683,13 +683,13 @@ INSERT INTO `partial_module_tourism_destination_images` VALUES (251, '1PzH_29660
 -- ----------------------------
 DROP TABLE IF EXISTS `partial_module_video_youtube_categories`;
 CREATE TABLE `partial_module_video_youtube_categories`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `sort` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -703,7 +703,7 @@ INSERT INTO `partial_module_video_youtube_categories` VALUES (1, 'sad232', '235'
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_catalog_modules`;
 CREATE TABLE `sys_catalog_modules`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
@@ -719,15 +719,15 @@ INSERT INTO `sys_catalog_modules` VALUES (2, 'Tiện ích, Quảng cáo');
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_function_of_controllers`;
 CREATE TABLE `sys_function_of_controllers`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `function` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `id_module` int(11) NOT NULL,
+  `id_module` int NOT NULL,
   `description` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `method` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '1: GET; 2: Post',
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `id_id_module`(`id_module`) USING BTREE,
+  INDEX `id_id_module`(`id_module` ASC) USING BTREE,
   CONSTRAINT `sys_function_of_controllers_ibfk_1` FOREIGN KEY (`id_module`) REFERENCES `sys_list_modules` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE = InnoDB AUTO_INCREMENT = 94 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -774,8 +774,8 @@ INSERT INTO `sys_function_of_controllers` VALUES (93, 'ajax', 49, NULL, '2', '20
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_function_permissions_according_to_users`;
 CREATE TABLE `sys_function_permissions_according_to_users`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
   `function_permissions` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `action` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
@@ -802,9 +802,9 @@ INSERT INTO `sys_function_permissions_according_to_users` VALUES (15, 6, '3', 'd
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_groups_modules`;
 CREATE TABLE `sys_groups_modules`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `order` int(11) NOT NULL DEFAULT 0,
+  `order` int NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -827,7 +827,7 @@ INSERT INTO `sys_groups_modules` VALUES (14, 'Trường học', 7);
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_guest_layouts`;
 CREATE TABLE `sys_guest_layouts`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
@@ -846,7 +846,7 @@ INSERT INTO `sys_guest_layouts` VALUES (3, 'Top-ThreeColumn-Footer', '/assets/ad
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_guest_layouts_columns`;
 CREATE TABLE `sys_guest_layouts_columns`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `column` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
@@ -868,12 +868,12 @@ INSERT INTO `sys_guest_layouts_columns` VALUES (6, 'Sáu cột', '6', NULL);
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_guest_page_controls`;
 CREATE TABLE `sys_guest_page_controls`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `module_id` int(11) NOT NULL,
-  `row_id` int(11) NULL DEFAULT NULL COMMENT 'Row number',
-  `column_id` int(11) NOT NULL COMMENT 'Column number',
-  `position_id` int(11) NOT NULL COMMENT 'TopContent: 1; MiddleContent: 2; BottomContent: 3',
-  `page_layout_id` int(11) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `module_id` int NOT NULL,
+  `row_id` int NULL DEFAULT NULL COMMENT 'Row number',
+  `column_id` int NOT NULL COMMENT 'Column number',
+  `position_id` int NOT NULL COMMENT 'TopContent: 1; MiddleContent: 2; BottomContent: 3',
+  `page_layout_id` int NOT NULL,
   `config` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
@@ -888,10 +888,10 @@ INSERT INTO `sys_guest_page_controls` VALUES (1, 42, NULL, 1, 1, 1, NULL);
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_guest_pages`;
 CREATE TABLE `sys_guest_pages`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `slug` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `layout_id` int(11) NOT NULL,
+  `layout_id` int NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -905,23 +905,23 @@ INSERT INTO `sys_guest_pages` VALUES (1, 'Trang chủ', '/', 1);
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_list_modules`;
 CREATE TABLE `sys_list_modules`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `slug` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `path_controller` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `path_view` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `type` int(11) NOT NULL COMMENT '1: Admin Interface;\r\n2: Guest Interface',
-  `order` int(11) NOT NULL DEFAULT 0,
-  `id_group` int(11) NOT NULL,
+  `type` int NOT NULL COMMENT '1: Admin Interface;\r\n2: Guest Interface',
+  `order` int NOT NULL DEFAULT 0,
+  `id_group` int NOT NULL,
   `content_config` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   `controller` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `description` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `active` int(11) NOT NULL,
+  `active` int NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `foreign_key_module_group`(`id_group`) USING BTREE,
+  INDEX `foreign_key_module_group`(`id_group` ASC) USING BTREE,
   CONSTRAINT `sys_list_modules_ibfk_1` FOREIGN KEY (`id_group`) REFERENCES `sys_groups_modules` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE = InnoDB AUTO_INCREMENT = 50 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -948,16 +948,16 @@ INSERT INTO `sys_list_modules` VALUES (49, 'Quản lý danh sách trường họ
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_logs`;
 CREATE TABLE `sys_logs`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `module` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `action` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
+  `user_id` int UNSIGNED NOT NULL,
   `detail` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  `created_at` timestamp(0) NULL DEFAULT NULL,
-  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `user_id`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 619 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+  INDEX `user_id`(`user_id` ASC) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 622 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_logs
@@ -1483,14 +1483,17 @@ INSERT INTO `sys_logs` VALUES (615, 'Đăng nhập', 'Đăng nhập', 1, '', '20
 INSERT INTO `sys_logs` VALUES (616, 'Đăng nhập', 'Đăng nhập', 1, '', '2022-12-19 13:54:20', '2022-12-19 13:54:20');
 INSERT INTO `sys_logs` VALUES (617, 'Đăng nhập', 'Đăng nhập', 1, '', '2022-12-20 09:11:44', '2022-12-20 09:11:44');
 INSERT INTO `sys_logs` VALUES (618, 'Đăng nhập', 'Đăng nhập', 1, '', '2022-12-22 15:29:58', '2022-12-22 15:29:58');
+INSERT INTO `sys_logs` VALUES (619, 'Đăng nhập', 'Đăng nhập', 1, '', '2022-12-23 15:25:16', '2022-12-23 15:25:16');
+INSERT INTO `sys_logs` VALUES (620, 'Đăng nhập', 'Đăng nhập', 1, '', '2022-12-27 10:34:31', '2022-12-27 10:34:31');
+INSERT INTO `sys_logs` VALUES (621, 'Đăng nhập', 'Đăng nhập', 1, '', '2022-12-27 12:16:59', '2022-12-27 12:16:59');
 
 -- ----------------------------
 -- Table structure for sys_module_permissions_according_to_users
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_module_permissions_according_to_users`;
 CREATE TABLE `sys_module_permissions_according_to_users`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
   `module_permissions` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `action` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'view, edit, delete',
   PRIMARY KEY (`id`) USING BTREE
@@ -1522,7 +1525,7 @@ INSERT INTO `sys_module_permissions_according_to_users` VALUES (63, 8, NULL, 'de
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_website_information`;
 CREATE TABLE `sys_website_information`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '',
   `logo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,

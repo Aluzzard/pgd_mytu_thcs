@@ -1,7 +1,7 @@
-@include('modules.UIImageLibrary.Detail.css') <div
- class="UIDetailImageLibrary_Default1"> <ul id="image-gallery" class="gallery
+@include('modules.UIImageLibrary.Detail.css') 
+<div class="UIDetailImageLibrary Default1"> <ul id="image-gallery" class="gallery
  list-unstyled cS-hidden">
-        @foreach($images as $image)
+        @foreach($UIDetailImageLibrary as $image)
         <li data-thumb="{{$image->path}}"> 
             <img src="{{$image->path}}" width="100%" />
              </li>

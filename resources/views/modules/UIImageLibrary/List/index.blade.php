@@ -5,7 +5,7 @@
 		<span>Thư viện ảnh</span>
 	</div>
 	<div class="library-content-box">
-		@foreach($image_libraries as $library)
+		@foreach($UIImageLibrary as $library)
 		<a href="/thu-vien-anh/{{$library->id}}">
 			<div class="row library">
 				<div class="col-md-4"><img src="{{$library->path}}" width="100%"></div>
@@ -20,7 +20,7 @@
 <div class="UIListLibraryImage_Default2">
 	<div class="library-content-box">
 		<div class="row library">
-			@foreach($image_libraries as $library)
+			@foreach($UIImageLibrary as $library)
 				<div class="col-md-3">
 					<a href="/thu-vien-anh/{{$library->id}}">
 						<img src="{{$library->path}}" width="100%">

@@ -14,8 +14,6 @@
 @media only screen and (max-width: 500px) {
     .h-100px{
         height: 100px!important;
-        /*background-size: contain!important;*/
-
     }
 }
 .carousel-indicators {
@@ -59,14 +57,13 @@
 @endsection
 @section('content')
     <div class="row">
-        <div class="col-md-4">
-            @include('modules.UIVerticalMenu.index')
-            @php $type_display = 1; @endphp
-            @include('modules.UIImageLibrary.List.index')
-        </div>
         <div class="col-md-8">
             @php $type_display = 2; @endphp
             @include('modules.UIImageLibrary.Detail.index')
+        </div>
+        <div class="col-md-4">
+            @php $type_display = 1; @endphp
+            @include('modules.UIImageLibrary.List.index')
         </div>
     </div>
   

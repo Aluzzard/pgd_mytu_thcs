@@ -1,5 +1,5 @@
 <div class="UIVerticalMenu">
-	@foreach($vertical_menus as $v_menu)
+	@foreach($UIVerticalMenu as $v_menu)
 		@if(count($v_menu->childs) > 0)
 		<div class="heading">{{$v_menu->name}}</div>
 			@if(count($v_menu->childs))

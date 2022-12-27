@@ -1,5 +1,5 @@
 <div class="UIAdvertisements">
-	@if($advertisements->where('id', $id)->first())
-	{!! $advertisements->where('id', $id)->first()->content !!}
+	@if($UIAdvertisements->where('id', $id)->first())
+	{!! $UIAdvertisements->where('id', $id)->first()->content !!}
 	@endif
 </div>

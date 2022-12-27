@@ -1,7 +1,7 @@
-@include('modules.UIListArticles.css')
-<div class="UIListArticles_Default1">
-	@if(count($articles)>0)
-	@foreach( $articles as $key=>$article )
+@include('modules.UIArticles.List.css')
+<div class="UIListArticles Default1">
+	@if(count($UIListArticle)>0)
+	@foreach( $UIListArticle as $key=>$article )
 	<div class="item">
 		<a href="/{{$article->slug}}">
 	        <div class="row">
@@ -25,6 +25,6 @@
 	    </a>
 	</div>
 	@endforeach
-	{!! $articles->links() !!}
+	{!! $UIListArticle->links() !!}
 	@endif
 </div>

@@ -1,4 +1,4 @@
-<div class="UIListSteeringDocument_Default1">
+<div class="UIListSteeringDocument Default1">
 	<div class="col-md-8">
 		<table id="example" cellpadding="3" cellspacing="0" border="0" style="width: 100%; margin: 0 auto 2em auto;">
 			<thead>
@@ -31,7 +31,7 @@
 			</tr>
 		</thead>
 		<tbody id="data_table_body">
-			{!!$table_html!!}
+			{!!$UISteeringDocumentList!!}
 		</tbody>
 	</table>
 </div>

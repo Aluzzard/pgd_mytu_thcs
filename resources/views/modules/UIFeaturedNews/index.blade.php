@@ -2,7 +2,7 @@
 	<div class="heading"><i class="fa fa-newspaper me-2"></i>Tin tức - nổi bật</div>
 	<div class="row">
 		<div class="left-side col-md-6">
-			@foreach($featured_news->take(1) as $article)
+			@foreach($UIFeaturedNews->take(1) as $article)
 			<a href="/{{$article->category->slug}}/{{$article->slug}}">
 				<img src="{{$article->avatar}}" width="100%">
 				<div class="title">{{$article->title}}</div>
@@ -11,7 +11,7 @@
 			@endforeach
 		</div>
 		<div class="right-side col-md-6">
-			@foreach($featured_news->skip(1)->take(4) as $article)
+			@foreach($UIFeaturedNews->skip(1)->take(4) as $article)
 			<a href="/{{$article->category->slug}}/{{$article->slug}}">
 				<div class="row">
 					<div class="col-md-4">

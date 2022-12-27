@@ -5,9 +5,9 @@
 		<span>Chính phủ điện tử</span>
 	</div>
 	<div class="link-content-box">
-		@foreach($website_links as $link)
+		@foreach($UIWebsiteLinks as $link)
 		@if( $link->avatar )
-		<a class="item" href="{{$link->slug}}">
+		<a class="item" href="{{$link->slug}}" target="_blank">
 			<img src="{{$link->avatar}}" width="100%">
 			<div class="title">
 				{{$link->name}}
@@ -26,7 +26,7 @@
 	<div class="link-content-box">
 		<select class="form-control" onchange="window.open(this.value)">
 			<option selected>-- Chọn liên kết --</option>
-			@foreach($website_links as $link)
+			@foreach($UIWebsiteLinks as $link)
 			@if( !$link->avatar )
 			<option value="{{$link->slug}}">{{$link->name}}</option>
 			@endif
