@@ -89,7 +89,7 @@
                                 <span class="mini-dn">Thông tin website</span>
                             </a>
                         </li>
-                    @elseif($function_permission == 6)
+                    <!-- @elseif($function_permission == 6)
                     <li class="nav-item">
                         <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-home"></i> <span class="mini-dn">Tuỳ biến giao diện</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
                         <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
@@ -98,7 +98,7 @@
                             <a href="analytics.html" class="dropdown-item">Analytics</a>
                             <a href="widgets.html" class="dropdown-item">Widgets</a>
                         </div>
-                    </li>
+                    </li> -->
                     @endif
                     @endforeach
                 @endif 

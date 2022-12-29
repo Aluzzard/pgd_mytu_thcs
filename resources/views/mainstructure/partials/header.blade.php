@@ -22,7 +22,7 @@
                 <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                     <div class="header-right-info">
                         <ul class="nav navbar-nav mai-top-nav header-right-menu">
-                            <li class="nav-item dropdown">
+                            <!-- <li class="nav-item dropdown">
                                 <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span class="adminpro-icon adminpro-chat-pro"></span><span class="indicator-ms"></span></a>
                                 <div role="menu" class="author-message-top dropdown-menu animated flipInX">
                                     <div class="message-single-top">
@@ -142,7 +142,7 @@
                                         <a href="#">View All Notification</a>
                                     </div>
                                 </div>
-                            </li>
+                            </li> -->
                             <li class="nav-item">
                                 <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
                                     <span class="adminpro-icon adminpro-user-rounded header-riht-inf"></span>

@@ -35,39 +35,35 @@
 				@include('modules.UITabArticle.index')
 			</div>
 			<div class="col-md-6">
-				@php $heading = "Hoạt động đoàn - Đội"; $array = $UITabArticle->where('category_id', 88)->take(4); $sub_item_img = false; @endphp
+				@php $heading = "Hoạt động đoàn - Đội"; $array = $UITabArticle->where('category_id', 89)->take(4); $sub_item_img = false; @endphp
 				@include('modules.UITabArticle.index')
 			</div>
 			<div class="col-md-6">
-				@php $heading = "Công khai theo TT36"; $array = $UITabArticle->where('category_id', 88)->take(4); $sub_item_img = false; @endphp
+				@php $heading = "Công khai theo TT36"; $array = $UITabArticle->where('category_id', 142)->take(4); $sub_item_img = false; @endphp
 				@include('modules.UITabArticle.index')
 			</div>
 			<div class="col-md-6">
-				@php $heading = "Kế hoạch Năm - Tháng"; $array = $UITabArticle->where('category_id', 100)->take(4); $sub_item_img = false; @endphp
+				@php $heading = "Kế hoạch Năm - Tháng"; $array = $UITabArticle->where('category_id', 143)->take(4); $sub_item_img = false; @endphp
 				@include('modules.UITabArticle.index')
 			</div>
 			<div class="col-md-6">
-				@php $heading = "Lịch công tác tuần của BGH"; $array = $UITabArticle->where('category_id', 100)->take(4); $sub_item_img = false; @endphp
+				@php $heading = "Lịch công tác tuần của BGH"; $array = $UITabArticle->where('category_id', 141)->take(4); $sub_item_img = false; @endphp
 				@include('modules.UITabArticle.index')
 			</div>
 			<div class="col-md-6">
-				@php $heading = "Thông báo"; $array = $UITabArticle->where('category_id', 100)->take(4); $sub_item_img = false; @endphp
+				@php $heading = "Thông báo"; $array = $UITabArticle->where('category_id', 144)->take(4); $sub_item_img = false; @endphp
 				@include('modules.UITabArticle.index')
 			</div>
 			<div class="col-md-6">
-				@php $heading = "Văn bản trường"; $array = $UITabArticle->where('category_id', 100)->take(4); $sub_item_img = false; @endphp
+				@php $heading = "Hoạt động NGLL"; $array = $UITabArticle->where('category_id', 145)->take(4); $sub_item_img = false; @endphp
 				@include('modules.UITabArticle.index')
 			</div>
 			<div class="col-md-6">
-				@php $heading = "Hoạt động NGLL"; $array = $UITabArticle->where('category_id', 100)->take(4); $sub_item_img = false; @endphp
+				@php $heading = "Ban đại diện CMHS"; $array = $UITabArticle->where('category_id', 147)->take(4); $sub_item_img = false; @endphp
 				@include('modules.UITabArticle.index')
 			</div>
 			<div class="col-md-6">
-				@php $heading = "Ban đại diện CMHS"; $array = $UITabArticle->where('category_id', 100)->take(4); $sub_item_img = false; @endphp
-				@include('modules.UITabArticle.index')
-			</div>
-			<div class="col-md-6">
-				@php $heading = "Công tác nội trú"; $array = $UITabArticle->where('category_id', 100)->take(4); $sub_item_img = false; @endphp
+				@php $heading = "Công tác nội trú"; $array = $UITabArticle->where('category_id', 146)->take(4); $sub_item_img = false; @endphp
 				@include('modules.UITabArticle.index')
 			</div>
 		</div>
